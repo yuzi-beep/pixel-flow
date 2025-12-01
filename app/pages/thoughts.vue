@@ -59,10 +59,14 @@ const formatRelativeTime = (dateStr: string): string => {
 <template>
   <PageWrapper>
     <!-- 页面标题 -->
-    <h1 class="text-4xl font-bold mb-4 transition-colors duration-300">
+    <h1
+      class="text-4xl font-bold mb-4 transition-colors duration-300 text-gray-900 dark:text-white"
+    >
       碎碎念
     </h1>
-    <p class="text-base opacity-60 mb-12 transition-colors duration-300">
+    <p
+      class="text-base opacity-60 mb-12 transition-colors duration-300 text-gray-700 dark:text-gray-300"
+    >
       Yuzi 发牢骚的小角落，共 {{ pagination.total }} 条内容。
     </p>
 
@@ -81,7 +85,7 @@ const formatRelativeTime = (dateStr: string): string => {
           <span class="font-mono text-blue-500 dark:text-blue-400 font-semibold"
             >#{{ pagination.total - index }}</span
           >
-          <span class="opacity-50"
+          <span class="text-gray-500 dark:text-gray-400"
             >发布于 {{ formatRelativeTime(thought.created_at) }}</span
           >
         </div>
@@ -111,15 +115,16 @@ const formatRelativeTime = (dateStr: string): string => {
         </div>
         <hr
           v-if="index != thoughts.length - 1"
-          class="my-10 h-[1px] w-full bg-gray-200 dark:bg-gray-700"
+          class="my-10 h-[1px] w-full bg-gray-200 dark:bg-gray-700 border-none"
         />
       </div>
     </div>
-
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">💭</div>
-      <p class="text-lg opacity-70">暂无碎碎念，敬请期待...</p>
+      <p class="text-lg text-gray-500 dark:text-gray-400">
+        暂无碎碎念，敬请期待...
+      </p>
     </div>
 
     <!-- 加载更多 -->
@@ -129,7 +134,7 @@ const formatRelativeTime = (dateStr: string): string => {
     >
       <button
         @click="loadMore"
-        class="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        class="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
       >
         加载更多
       </button>

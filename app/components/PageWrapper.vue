@@ -10,13 +10,13 @@ const scrollContainerRef = ref<HTMLElement | null>(null);
 
 // 暴露滚动容器给父组件
 defineExpose({
-  scrollContainer: scrollContainerRef
+  scrollContainer: scrollContainerRef,
 });
 </script>
 
 <template>
   <div
-    class="h-[100svh] pt-[75px] flex flex-col transition-colors duration-300"
+    class="h-[100svh] pt-[75px] flex flex-col transition-colors duration-300 bg-white dark:bg-[#0a0a0f]"
   >
     <div
       ref="scrollContainerRef"

@@ -23,8 +23,8 @@ const renderedContent = computed(() => {
 
 // SEO 元数据
 useSeoMeta({
-  title: () => post.value?.title || '文章',
-  description: () => post.value?.content?.substring(0, 150) || '',
+  title: () => post.value?.title || "文章",
+  description: () => post.value?.content?.substring(0, 150) || "",
 });
 
 // 格式化完整日期
@@ -37,11 +37,16 @@ const formatFullDate = (dateStr: string): string => {
 };
 
 // PageWrapper 组件 ref
-const pageWrapperRef = ref<{ scrollContainer: HTMLElement | null } | null>(null);
+const pageWrapperRef = ref<{ scrollContainer: HTMLElement | null } | null>(
+  null
+);
 
 // 回到顶部
 const scrollToTop = () => {
-  pageWrapperRef.value?.scrollContainer?.scrollTo({ top: 0, behavior: "smooth" });
+  pageWrapperRef.value?.scrollContainer?.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 </script>
 
@@ -51,7 +56,7 @@ const scrollToTop = () => {
       <!-- 返回按钮 -->
       <NuxtLink
         to="/posts"
-        class="inline-flex items-center gap-2 mb-8 text-sm opacity-60 hover:opacity-100 transition-opacity"
+        class="inline-flex items-center gap-2 mb-8 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,16 +74,19 @@ const scrollToTop = () => {
         </svg>
         返回文章列表
       </NuxtLink>
-
       <!-- 文章头部 -->
       <header>
         <!-- 标题 -->
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">
+        <h1
+          class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-900 dark:text-white"
+        >
           {{ post.title }}
         </h1>
 
         <!-- 文章元信息 -->
-        <div class="flex flex-wrap items-center gap-4 text-sm opacity-60">
+        <div
+          class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400"
+        >
           <!-- 作者 -->
           <span v-if="post.author" class="flex items-center gap-1">
             <svg
@@ -133,11 +141,11 @@ const scrollToTop = () => {
         </div>
       </header>
       <!-- 分隔线 -->
-      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700" />
+      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
       <!-- 文章内容 -->
       <div class="prose-content" v-html="renderedContent"></div>
       <!-- 分隔线 -->
-      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700" />
+      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
       <!-- 文章底部 -->
       <footer class="border-t border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center">
@@ -188,8 +196,12 @@ const scrollToTop = () => {
     </article>
     <!-- 文章未找到 -->
     <div v-else class="py-20 text-center">
-      <h1 class="text-2xl font-bold mb-4">文章未找到</h1>
-      <p class="opacity-60 mb-8">抱歉，您访问的文章不存在或已被删除。</p>
+      <h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+        文章未找到
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">
+        抱歉，您访问的文章不存在或已被删除。
+      </p>
       <NuxtLink
         to="/posts"
         class="inline-flex items-center gap-2 px-6 py-3 rounded-lg transition-colors bg-blue-500 text-white hover:bg-blue-600"

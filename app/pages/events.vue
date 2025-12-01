@@ -3,7 +3,7 @@ import type { Event } from "~/types/database.types";
 
 // SEO 元数据
 useSeoMeta({
-  title: '时间线',
+  title: "时间线",
 });
 
 // 从 API 获取事件列表
@@ -76,7 +76,7 @@ const formatEventDate = (dateStr: string): string => {
         :class="
           selectedTag === ''
             ? 'bg-blue-500 text-white'
-            : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+            : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
         "
       >
         全部
@@ -89,7 +89,7 @@ const formatEventDate = (dateStr: string): string => {
         :class="
           selectedTag === tag
             ? 'bg-blue-500 text-white'
-            : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+            : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
         "
       >
         {{ tag }}
@@ -144,16 +144,21 @@ const formatEventDate = (dateStr: string): string => {
               "
             >
               <!-- 日期 -->
-              <div class="text-sm opacity-50 mb-2">
+              <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
                 {{ formatEventDate(event.event_date) }}
               </div>
               <!-- 标题 -->
-              <h3 class="text-lg font-semibold mb-2">
+              <h3
+                class="text-lg font-semibold mb-2 text-gray-900 dark:text-white"
+              >
                 {{ event.title }}
               </h3>
 
               <!-- 描述 - 使用 Markdown 渲染 -->
-              <div v-if="event.description" class="text-sm opacity-70">
+              <div
+                v-if="event.description"
+                class="text-sm text-gray-600 dark:text-gray-300"
+              >
                 <MarkdownPreview :content="event.description" />
               </div>
 
@@ -179,11 +184,12 @@ const formatEventDate = (dateStr: string): string => {
         </div>
       </div>
     </div>
-
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">📅</div>
-      <p class="text-lg opacity-70">暂无事件记录，敬请期待...</p>
+      <p class="text-lg text-gray-500 dark:text-gray-400">
+        暂无事件记录，敬请期待...
+      </p>
     </div>
   </PageWrapper>
 </template>
