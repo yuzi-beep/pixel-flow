@@ -2,6 +2,13 @@
 
 一个基于 **Nuxt 4** + **Supabase** 构建的现代化全栈个人博客系统。
 
+## 📝 待办（有时间就做）
+
+- [ ] 支持对象存储（图片上传）
+- [ ] 增加 RSS 订阅功能
+- [ ] 优化 SEO 设置
+- [ ] 增加多语言支持
+
 ## ✨ 功能特点
 
 - 📝 **文章管理** - 支持 Markdown 编辑、草稿/发布状态、标签分类
@@ -21,6 +28,7 @@
 | [Pinia](https://pinia.vuejs.org/)             | Vue 状态管理                            |
 | [TypeScript](https://www.typescriptlang.org/) | 类型安全的 JavaScript                   |
 | [Bun](https://bun.sh/)                        | 高性能 JavaScript 运行时和包管理器      |
+
 ---
 
 ## 🚀 部署指南
