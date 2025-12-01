@@ -143,7 +143,7 @@ const scrollToTop = () => {
       <!-- 分隔线 -->
       <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
       <!-- 文章内容 -->
-      <div class="prose-content" v-html="renderedContent"></div>
+      <MarkdownPreview :content="post.content"></MarkdownPreview>
       <!-- 分隔线 -->
       <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
       <!-- 文章底部 -->
@@ -212,93 +212,4 @@ const scrollToTop = () => {
   </PageWrapper>
 </template>
 
-<style scoped lang="scss">
-// Markdown 文章内容样式
-.prose-content {
-  :deep(h1) {
-    @apply text-3xl font-bold mt-10 mb-4;
-  }
-
-  :deep(h2) {
-    @apply text-2xl font-bold mt-8 mb-4;
-  }
-
-  :deep(h3) {
-    @apply text-xl font-bold mt-6 mb-3;
-  }
-
-  :deep(h4) {
-    @apply text-lg font-semibold mt-4 mb-2;
-  }
-
-  :deep(p) {
-    @apply my-4 leading-relaxed;
-  }
-
-  :deep(ul),
-  :deep(ol) {
-    @apply my-4 pl-6;
-  }
-
-  :deep(ul) {
-    @apply list-disc;
-  }
-
-  :deep(ol) {
-    @apply list-decimal;
-  }
-
-  :deep(li) {
-    @apply my-2;
-  }
-
-  :deep(blockquote) {
-    @apply my-6 pl-4 border-l-4 border-gray-400 dark:border-gray-600 italic opacity-80;
-  }
-
-  :deep(code) {
-    @apply px-1.5 py-0.5 rounded text-sm bg-gray-200 dark:bg-gray-800;
-  }
-
-  :deep(pre) {
-    @apply my-6 p-4 rounded-lg overflow-x-auto bg-gray-100 dark:bg-gray-900;
-
-    code {
-      @apply p-0 bg-transparent;
-    }
-  }
-
-  :deep(a) {
-    @apply text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 underline underline-offset-2;
-  }
-
-  :deep(img) {
-    @apply my-6 rounded-lg max-w-full h-auto;
-  }
-
-  :deep(hr) {
-    @apply my-8 border-t border-gray-300 dark:border-gray-700;
-  }
-
-  :deep(table) {
-    @apply my-6 w-full border-collapse;
-  }
-
-  :deep(th),
-  :deep(td) {
-    @apply border border-gray-300 dark:border-gray-700 px-4 py-2 text-left;
-  }
-
-  :deep(th) {
-    @apply font-bold bg-gray-100 dark:bg-gray-800;
-  }
-
-  :deep(strong) {
-    @apply font-bold;
-  }
-
-  :deep(em) {
-    @apply italic;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
