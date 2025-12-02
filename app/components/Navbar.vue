@@ -16,8 +16,7 @@ onMounted(() => {
 const navItems = [
   { name: "文章", path: "/posts" },
   { name: "碎碎念", path: "/thoughts" },
-  { name: "事件", path: "/events" },
-  { name: "关于", path: "/" },
+  { name: "事件", path: "/events" }
 ];
 
 // 用户菜单展开状态
@@ -54,12 +53,12 @@ const navMaxWidth = computed(() => {
           <NuxtLink to="/" class="flex flex-col">
             <div
               class="font-bold tracking-wider transition-all duration-500 text-theme-text"
-              :class="!navbarMode ? 'text-2xl' : 'text-lg'"
+              :class="!navbarMode ? 'text-2xl' : 'card-title text-lg mb-0'"
             >
               PixelFlow
             </div>
             <Transition name="fade">
-              <div class="text-xs tracking-wide transition-colors duration-300 text-theme-text-mute">
+              <div class="text-tiny tracking-wide">
                 Yuzi写东西的地方
               </div>
             </Transition>
@@ -75,7 +74,7 @@ const navMaxWidth = computed(() => {
             >
               {{ item.name }}
               <span
-                class="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-300 group-hover:w-full bg-theme-text-mute"
+                class="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-theme-text-mute"
               ></span>
             </NuxtLink>
             <!-- Dark Mode Toggle -->
@@ -146,32 +145,32 @@ const navMaxWidth = computed(() => {
                 >
                   <NuxtLink
                     to="/dashboard"
-                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
+                    class="block px-4 py-2 nav-link hover:bg-theme-hover"
                   >
                     📊 仪表盘
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/posts"
-                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
+                    class="block px-4 py-2 nav-link hover:bg-theme-hover"
                   >
                     📝 文章管理
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/thoughts"
-                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
+                    class="block px-4 py-2 nav-link hover:bg-theme-hover"
                   >
                     💭 碎碎念
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/events"
-                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
+                    class="block px-4 py-2 nav-link hover:bg-theme-hover"
                   >
                     📅 事件管理
                   </NuxtLink>
                   <div class="my-1 h-px bg-theme-divider"></div>
                   <button
                     @click="logout"
-                    class="block w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-theme-hover transition-colors"
+                    class="block w-full text-left px-4 py-2 nav-link text-red-600 dark:text-red-400 hover:bg-theme-hover"
                   >
                     🚪 退出登录
                   </button>

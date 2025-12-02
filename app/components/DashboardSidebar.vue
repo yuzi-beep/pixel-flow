@@ -23,10 +23,10 @@ const isActive = (path: string) => {
     <!-- Logo -->
     <GlassCard>
       <NuxtLink to="/" class="flex flex-col">
-        <div class="font-bold tracking-wider text-xl text-theme-text">
+        <div class="card-title tracking-wider mb-0">
           PixelFlow
         </div>
-        <div class="text-xs tracking-wide text-theme-text-mute">
+        <div class="text-tiny tracking-wide">
           Dashboard
         </div>
       </NuxtLink>
@@ -38,11 +38,11 @@ const isActive = (path: string) => {
         v-for="item in menuItems"
         :key="item.path"
         :to="item.path"
-        class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl nav-link"
         :class="
           isActive(item.path)
-            ? 'bg-accent text-white shadow-lg shadow-accent/25'
-            : 'text-theme-text-soft hover:bg-theme-hover'
+            ? 'bg-accent text-white shadow-lg shadow-accent/25 hover:text-white'
+            : 'hover:bg-theme-hover'
         "
       >
         <span class="text-lg">{{ item.icon }}</span>
@@ -54,7 +54,7 @@ const isActive = (path: string) => {
         <!-- 暗黑模式切换 -->
         <button
           @click="themeStore.toggleTheme()"
-          class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-theme-text-soft hover:bg-theme-hover w-full"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl nav-link hover:bg-theme-hover w-full"
         >
           <span class="text-lg dark:hidden">🌙</span>
           <span class="text-lg hidden dark:inline">☀️</span>
@@ -64,8 +64,8 @@ const isActive = (path: string) => {
 
         <!-- 退出登录 -->
         <button
-          @click="logout"
-          class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 w-full"
+          @click="handleLogout"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl nav-link text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 w-full"
         >
           <span class="text-lg">🚪</span>
           <span>退出登录</span>

@@ -11,7 +11,7 @@ const themeStore = useThemeStore();
       >
         <div class="loading-content">
           <div
-            class="text-xl font-bold tracking-[0.5em] animate-pulse text-gray-800 dark:text-white"
+            class="card-title tracking-[0.5em] animate-pulse text-gray-800 dark:text-white mb-0"
           >
             LOADING
           </div>

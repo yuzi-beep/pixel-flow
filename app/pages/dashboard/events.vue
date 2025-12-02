@@ -206,8 +206,8 @@ const formatDate = (dateStr: string) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-theme-text transition-colors">事件管理</h1>
-        <p class="text-theme-text-mute mt-1 text-sm">
+        <h1 class="section-title mb-1">事件管理</h1>
+        <p class="text-caption">
           共 {{ total }} 个事件
         </p>
       </div>
@@ -247,19 +247,19 @@ const formatDate = (dateStr: string) => {
                     class="w-3 h-3 rounded-full"
                     :style="{ backgroundColor: event.color }"
                   ></span>
-                  <span class="text-sm text-theme-text-soft transition-colors">{{
+                  <span class="text-caption">{{
                     formatDate(event.event_date)
                   }}</span>
                 </div>
               </td>
               <td class="table-cell">
-                <span class="font-medium text-theme-text transition-colors">{{ event.title }}</span>
+                <span class="item-title">{{ event.title }}</span>
               </td>
               <td class="table-cell">
-                <div v-if="event.description" class="text-sm">
+                <div v-if="event.description" class="text-body text-sm">
                   <MarkdownPreview :content="event.description" />
                 </div>
-                <span v-else class="text-sm text-theme-text-mute transition-colors">-</span>
+                <span v-else class="text-caption">-</span>
               </td>
               <td class="table-cell">
                 <div class="flex flex-wrap gap-1">
@@ -313,7 +313,7 @@ const formatDate = (dateStr: string) => {
       <!-- 空状态 -->
       <GlassCard v-else padding="py-12" class="text-center">
         <div class="text-6xl mb-4">📅</div>
-        <p class="text-theme-text-mute mb-4">还没有事件</p>
+        <p class="text-caption mb-4">还没有事件</p>
         <button
           @click="openAddModal"
           class="inline-block px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-xl transition-colors"
@@ -333,7 +333,7 @@ const formatDate = (dateStr: string) => {
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <!-- 标题 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             标题 *
           </label>
           <input
@@ -346,7 +346,7 @@ const formatDate = (dateStr: string) => {
 
         <!-- 日期 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             日期 *
           </label>
           <input
@@ -358,7 +358,7 @@ const formatDate = (dateStr: string) => {
 
         <!-- 描述 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             描述（可选）
           </label>
           <textarea
@@ -371,7 +371,7 @@ const formatDate = (dateStr: string) => {
 
         <!-- 颜色 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             颜色
           </label>
           <div class="flex items-center gap-2">
@@ -395,7 +395,7 @@ const formatDate = (dateStr: string) => {
 
         <!-- 标签 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             标签
           </label>
           <div class="flex gap-2 mb-2">

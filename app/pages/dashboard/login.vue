@@ -46,8 +46,8 @@ const handleLogin = async () => {
         <!-- Logo -->
         <div class="text-center mb-8">
           <div class="text-6xl mb-4">🔐</div>
-          <h1 class="text-3xl font-bold text-theme-text transition-colors">Dashboard</h1>
-          <p class="text-theme-text-mute mt-2 transition-colors">
+          <h1 class="page-title mb-2">Dashboard</h1>
+          <p class="text-caption">
             请输入管理密钥登录
           </p>
         </div>
@@ -57,10 +57,7 @@ const handleLogin = async () => {
           <form @submit.prevent="handleLogin" class="space-y-6">
             <!-- 密钥输入 -->
             <div>
-              <label
-                for="secret-key"
-                class="block text-sm font-medium text-theme-text-soft mb-2 transition-colors"
-              >
+              <label for="secret-key" class="form-label">
                 管理密钥
               </label>
               <input
@@ -111,7 +108,7 @@ const handleLogin = async () => {
 
           <!-- 返回首页 -->
           <div class="mt-6 text-center">
-            <NuxtLink to="/" class="text-sm link">
+            <NuxtLink to="/" class="link text-caption">
               ← 返回首页
             </NuxtLink>
           </div>

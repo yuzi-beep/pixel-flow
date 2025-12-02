@@ -54,10 +54,7 @@ const scrollToTop = () => {
   <PageWrapper ref="pageWrapperRef">
     <article v-if="post">
       <!-- 返回按钮 -->
-      <NuxtLink
-        to="/posts"
-        class="inline-flex items-center gap-2 mb-8 text-sm link"
-      >
+      <NuxtLink to="/posts" class="inline-flex items-center gap-2 mb-8 link text-caption">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-4 w-4"
@@ -77,12 +74,12 @@ const scrollToTop = () => {
       <!-- 文章头部 -->
       <header>
         <!-- 标题 -->
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-theme-text">
+        <h1 class="page-title leading-tight mb-4">
           {{ post.title }}
         </h1>
 
         <!-- 文章元信息 -->
-        <div class="flex flex-wrap items-center gap-4 text-sm text-theme-text-mute">
+        <div class="flex flex-wrap items-center gap-4 text-caption">
           <!-- 作者 -->
           <span v-if="post.author" class="flex items-center gap-1">
             <svg
@@ -192,10 +189,10 @@ const scrollToTop = () => {
     </article>
     <!-- 文章未找到 -->
     <div v-else class="py-20 text-center">
-      <h1 class="text-2xl font-bold mb-4 text-theme-text">
+      <h1 class="section-title mb-4">
         文章未找到
       </h1>
-      <p class="text-theme-text-mute mb-8">
+      <p class="text-body text-theme-text-mute mb-8">
         抱歉，您访问的文章不存在或已被删除。
       </p>
       <NuxtLink

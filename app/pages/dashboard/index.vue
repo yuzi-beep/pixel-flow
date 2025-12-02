@@ -30,8 +30,8 @@ const stats = computed(() => ({
     <div class="flex-1 overflow-y-auto pr-2">
       <!-- 欢迎信息 -->
       <div class="mb-8">
-        <h1 class="text-3xl font-bold text-theme-text transition-colors">欢迎回来 👋</h1>
-        <p class="text-theme-text-mute mt-2 transition-colors">管理你的博客内容</p>
+        <h1 class="page-title mb-2">欢迎回来 👋</h1>
+        <p class="text-caption">管理你的博客内容</p>
       </div>
       <!-- 统计卡片 -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -47,8 +47,8 @@ const stats = computed(() => ({
                 📝
               </div>
               <div>
-                <div class="text-3xl font-bold text-theme-text transition-colors">{{ stats.posts }}</div>
-                <div class="text-sm text-theme-text-mute transition-colors">
+                <div class="page-title text-3xl mb-0">{{ stats.posts }}</div>
+                <div class="text-caption">
                   篇文章
                 </div>
               </div>
@@ -67,8 +67,8 @@ const stats = computed(() => ({
                 💭
               </div>
               <div>
-                <div class="text-3xl font-bold text-theme-text transition-colors">{{ stats.thoughts }}</div>
-                <div class="text-sm text-theme-text-mute transition-colors">
+                <div class="page-title text-3xl mb-0">{{ stats.thoughts }}</div>
+                <div class="text-caption">
                   条碎碎念
                 </div>
               </div>
@@ -87,8 +87,8 @@ const stats = computed(() => ({
                 📅
               </div>
               <div>
-                <div class="text-3xl font-bold text-theme-text transition-colors">{{ stats.events }}</div>
-                <div class="text-sm text-theme-text-mute transition-colors">
+                <div class="page-title text-3xl mb-0">{{ stats.events }}</div>
+                <div class="text-caption">
                   个事件
                 </div>
               </div>
@@ -105,25 +105,21 @@ const stats = computed(() => ({
             class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-dashed border-theme-border hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all"
           >
             <span class="text-3xl">✍️</span>
-            <span class="text-sm text-theme-text-soft transition-colors">写文章</span>
+            <span class="text-caption">写文章</span>
           </NuxtLink>
           <NuxtLink
             to="/dashboard/thoughts"
             class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-dashed border-theme-border hover:border-purple-500 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all"
           >
             <span class="text-3xl">💬</span>
-            <span class="text-sm text-theme-text-soft transition-colors"
-              >发碎碎念</span
-            >
+            <span class="text-caption">发碎碎念</span>
           </NuxtLink>
           <NuxtLink
             to="/dashboard/events"
             class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-dashed border-theme-border hover:border-green-500 dark:hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all"
           >
             <span class="text-3xl">🎯</span>
-            <span class="text-sm text-theme-text-soft transition-colors"
-              >添加事件</span
-            >
+            <span class="text-caption">添加事件</span>
           </NuxtLink>
           <NuxtLink
             to="/"
@@ -131,9 +127,7 @@ const stats = computed(() => ({
             class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-dashed border-theme-border hover:border-gray-400 dark:hover:border-gray-500 hover:bg-theme-hover transition-all"
           >
             <span class="text-3xl">🌐</span>
-            <span class="text-sm text-theme-text-soft transition-colors"
-              >查看网站</span
-            >
+            <span class="text-caption">查看网站</span>
           </NuxtLink>
         </div>
       </GlassCard>

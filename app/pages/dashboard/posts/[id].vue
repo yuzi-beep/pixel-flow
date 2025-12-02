@@ -10,9 +10,7 @@ const isNewMode = computed(() => postId === "new");
 
 // SEO 元数据
 useSeoMeta({
-  title: computed(() =>
-    isNewMode.value ? "新建文章" : "编辑文章"
-  ),
+  title: computed(() => (isNewMode.value ? "新建文章" : "编辑文章")),
 });
 
 const {
@@ -181,7 +179,7 @@ const submitButtonText = computed(() => {
         >
           ← 返回
         </NuxtLink>
-        <h1 class="text-xl font-bold text-theme-text">
+        <h1 class="card-title mb-0">
           {{ pageTitle }}
         </h1>
       </div>
@@ -198,12 +196,10 @@ const submitButtonText = computed(() => {
         </button>
 
         <!-- 视图模式切换 -->
-        <div
-          class="flex items-center bg-theme-bg-mute rounded-lg p-1"
-        >
+        <div class="flex items-center bg-theme-bg-mute rounded-lg p-1">
           <button
             @click="viewMode = 'edit'"
-            class="px-3 py-1.5 text-sm rounded-md transition-all"
+            class="px-3 py-1.5 text-caption rounded-md transition-all"
             :class="
               viewMode === 'edit'
                 ? 'bg-theme-bg shadow text-theme-text'
@@ -214,7 +210,7 @@ const submitButtonText = computed(() => {
           </button>
           <button
             @click="viewMode = 'split'"
-            class="px-3 py-1.5 text-sm rounded-md transition-all"
+            class="px-3 py-1.5 text-caption rounded-md transition-all"
             :class="
               viewMode === 'split'
                 ? 'bg-theme-bg shadow text-theme-text'
@@ -225,7 +221,7 @@ const submitButtonText = computed(() => {
           </button>
           <button
             @click="viewMode = 'preview'"
-            class="px-3 py-1.5 text-sm rounded-md transition-all"
+            class="px-3 py-1.5 text-caption rounded-md transition-all"
             :class="
               viewMode === 'preview'
                 ? 'bg-theme-bg shadow text-theme-text'
@@ -237,12 +233,10 @@ const submitButtonText = computed(() => {
         </div>
 
         <!-- 状态选择 -->
-        <div
-          class="flex items-center bg-theme-bg-mute rounded-lg p-1"
-        >
+        <div class="flex items-center bg-theme-bg-mute rounded-lg p-1">
           <button
             @click="form.status = 'draft'"
-            class="px-3 py-1.5 text-sm rounded-md transition-all"
+            class="px-3 py-1.5 text-caption rounded-md transition-all"
             :class="
               form.status === 'draft'
                 ? 'bg-theme-bg shadow text-theme-text'
@@ -253,7 +247,7 @@ const submitButtonText = computed(() => {
           </button>
           <button
             @click="form.status = 'published'"
-            class="px-3 py-1.5 text-sm rounded-md transition-all"
+            class="px-3 py-1.5 text-caption rounded-md transition-all"
             :class="
               form.status === 'published'
                 ? 'bg-theme-bg shadow text-theme-text'
@@ -268,7 +262,7 @@ const submitButtonText = computed(() => {
         <button
           @click="handleSubmit"
           :disabled="isSubmitting"
-          class="btn-primary text-sm"
+          class="btn-primary text-caption"
         >
           {{ submitButtonText }}
         </button>
@@ -276,10 +270,7 @@ const submitButtonText = computed(() => {
     </div>
 
     <!-- 错误提示 -->
-    <div
-      v-if="errorMessage"
-      class="error-message mb-4 flex-shrink-0"
-    >
+    <div v-if="errorMessage" class="error-message mb-4 shrink-0">
       {{ errorMessage }}
     </div>
 
@@ -299,38 +290,34 @@ const submitButtonText = computed(() => {
         "
       >
         <!-- 编辑器头部 -->
-        <div
-          class="p-4 border-b border-theme-border space-y-3 flex-shrink-0"
-        >
+        <div class="p-4 border-b border-theme-border space-y-3 shrink-0">
           <!-- 标题输入 -->
           <input
             v-model="form.title"
             type="text"
             placeholder="输入文章标题..."
-            class="w-full text-xl font-bold border-none bg-transparent outline-none text-theme-text placeholder-theme-text-mute"
+            class="w-full page-title text-xl border-none bg-transparent outline-none placeholder-theme-text-mute mb-0"
           />
 
           <!-- 作者和标签 -->
-          <div class="flex items-center gap-4 text-sm">
+          <div class="flex items-center gap-4">
             <div class="flex items-center gap-2">
-              <span class="text-theme-text-mute">作者:</span>
+              <span class="text-caption">作者:</span>
               <input
                 v-model="form.author"
                 type="text"
                 placeholder="可选"
-                class="w-24 px-2 py-1 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-sm focus:border-accent"
+                class="w-24 px-2 py-1 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-caption focus:border-accent"
               />
             </div>
 
             <div class="flex items-center gap-2 flex-1 min-w-0">
-              <span class="text-theme-text-mute flex-shrink-0"
-                >标签:</span
-              >
+              <span class="text-caption shrink-0">标签:</span>
               <div class="flex items-center gap-1 flex-wrap flex-1 min-w-0">
                 <span
                   v-for="(tag, index) in form.tags"
                   :key="tag"
-                  class="px-2 py-0.5 bg-accent/10 text-accent rounded text-xs flex items-center gap-1 flex-shrink-0"
+                  class="badge px-2 py-0.5 flex items-center gap-1 shrink-0"
                 >
                   #{{ tag }}
                   <button
@@ -346,7 +333,7 @@ const submitButtonText = computed(() => {
                   type="text"
                   placeholder="添加标签..."
                   @keydown.enter.prevent="addTag"
-                  class="w-20 px-2 py-0.5 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-xs focus:border-accent flex-shrink-0"
+                  class="w-20 px-2 py-0.5 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-tiny focus:border-accent flex-shrink-0"
                 />
               </div>
             </div>
@@ -358,7 +345,7 @@ const submitButtonText = computed(() => {
           <textarea
             v-model="form.content"
             placeholder="使用 Markdown 编写文章内容..."
-            class="w-full h-full resize-none bg-transparent border-none outline-none text-theme-text placeholder-theme-text-mute font-mono text-sm leading-relaxed"
+            class="w-full h-full resize-none bg-transparent border-none outline-none text-theme-text placeholder-theme-text-mute text-mono leading-relaxed"
           ></textarea>
         </div>
       </GlassCard>
@@ -377,12 +364,8 @@ const submitButtonText = computed(() => {
         "
       >
         <!-- 预览头部 -->
-        <div
-          class="p-4 border-b border-theme-border flex-shrink-0"
-        >
-          <div
-            class="flex items-center gap-2 text-sm text-theme-text-mute"
-          >
+        <div class="p-4 border-b border-theme-border flex-shrink-0">
+          <div class="flex items-center gap-2 text-caption">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="w-4 h-4"
@@ -410,30 +393,21 @@ const submitButtonText = computed(() => {
         <!-- 预览内容区 -->
         <div class="flex-1 p-6 overflow-auto min-h-0">
           <!-- 预览标题 -->
-          <h1
-            v-if="form.title"
-            class="text-3xl font-bold text-theme-text mb-4"
-          >
+          <h1 v-if="form.title" class="page-title mb-4">
             {{ form.title }}
           </h1>
-          <div
-            v-else
-            class="text-3xl font-bold text-theme-text-mute mb-4 italic"
-          >
+          <div v-else class="page-title text-theme-text-mute mb-4 italic">
             无标题
           </div>
 
           <!-- 预览元信息 -->
           <div
             v-if="form.author || form.tags.length"
-            class="flex items-center gap-3 mb-6 text-sm text-theme-text-mute"
+            class="flex items-center gap-3 mb-6 text-caption"
           >
             <span v-if="form.author">{{ form.author }}</span>
             <div v-if="form.tags.length" class="flex items-center gap-1">
-              <span
-                v-for="tag in form.tags"
-                :key="tag"
-                class="text-accent"
+              <span v-for="tag in form.tags" :key="tag" class="text-accent"
                 >#{{ tag }}</span
               >
             </div>
@@ -441,7 +415,7 @@ const submitButtonText = computed(() => {
 
           <!-- Markdown 内容预览 -->
           <MarkdownPreview v-if="form.content" :content="form.content" />
-          <div v-else class="text-theme-text-mute italic">
+          <div v-else class="text-caption italic">
             开始编写内容后预览将显示在这里...
           </div>
         </div>

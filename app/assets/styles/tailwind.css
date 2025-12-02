@@ -1,6 +1,9 @@
 /* ==================== Tailwind CSS v4 ==================== */
 @import "tailwindcss";
 
+/* Dark mode 使用 class 策略 */
+@variant dark (&:where(.dark, .dark *));
+
 /* 自定义 Tailwind 主题扩展 */
 @theme {
   /* 语义化颜色 - 映射 CSS 变量 */
@@ -33,6 +36,105 @@
 
 /* ==================== 组件层 ==================== */
 @layer components {
+  /* ==================== 文字排版系统 ==================== */
+
+  /* 主标题 - 用于页面标题、hero 区域 */
+  .text-hero {
+    @apply text-6xl md:text-8xl font-bold tracking-tight text-theme-text transition-colors duration-300;
+  }
+
+  /* 页面标题 - 用于各页面的主标题 */
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold text-theme-text transition-colors duration-300 mb-4;
+  }
+
+  /* 区块标题 - 用于卡片或区块的标题 */
+  .section-title {
+    @apply text-2xl font-bold text-theme-text transition-colors duration-300 mb-4;
+  }
+
+  /* 卡片标题 - 用于卡片内部的标题 */
+  .card-title {
+    @apply text-lg font-semibold text-theme-text transition-colors duration-300 mb-4;
+  }
+
+  /* 列表项标题 - 用于列表中的标题 */
+  .item-title {
+    @apply font-medium text-theme-text transition-colors duration-300;
+  }
+
+  /* 副标题/描述 - 用于页面或区块的描述文字 */
+  .page-subtitle {
+    @apply text-lg text-theme-text-mute transition-colors duration-300 mb-8;
+  }
+
+  /* 正文 - 用于主要内容文字 */
+  .text-body {
+    @apply text-base leading-relaxed text-theme-text-soft transition-colors duration-300;
+  }
+
+  /* 辅助文字 - 用于次要信息、时间戳等 */
+  .text-caption {
+    @apply text-sm text-theme-text-mute transition-colors duration-300;
+  }
+
+  /* 微小文字 - 用于标签、badge 等 */
+  .text-tiny {
+    @apply text-xs text-theme-text-mute transition-colors duration-300;
+  }
+
+  /* 强调文字 - 用于需要突出的文字 */
+  .text-emphasis {
+    @apply font-semibold text-theme-text transition-colors duration-300;
+  }
+
+  /* 代码/等宽文字 */
+  .text-mono {
+    @apply font-mono text-sm text-theme-text-soft transition-colors duration-300;
+  }
+
+  /* 链接文字 */
+  .link {
+    @apply text-theme-text-soft hover:text-accent transition-colors duration-300;
+  }
+
+  /* 导航链接 */
+  .nav-link {
+    @apply text-sm font-medium text-theme-text-soft hover:text-theme-text transition-colors duration-300;
+  }
+
+  /* 标签/Badge */
+  .badge {
+    @apply px-3 py-1 text-xs rounded-full bg-accent/10 text-accent transition-colors duration-300;
+  }
+
+  /* 分隔线 */
+  .divider {
+    @apply my-8 border-t border-theme-divider;
+  }
+
+  /* 表格头部 */
+  .table-header {
+    @apply px-6 py-4 text-left text-sm font-medium text-theme-text-mute transition-colors;
+  }
+
+  /* 表格行 */
+  .table-row {
+    @apply hover:bg-theme-hover transition-colors;
+  }
+
+  /* 表格单元格 */
+  .table-cell {
+    @apply px-6 py-4;
+  }
+
+  /* 表格单元格 - 灰色 */
+  .table-cell-muted {
+    @apply px-6 py-4 text-sm text-theme-text-mute transition-colors;
+  }
+
+  /* ==================== 按钮系统 ==================== */
+
   /* 按钮基础 */
   .btn {
     @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer;
@@ -54,12 +156,20 @@
     @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer bg-red-500 text-white hover:bg-red-600;
   }
 
+  /* ==================== 表单系统 ==================== */
+
   /* 表单输入 */
   .input {
     @apply w-full px-4 py-3 rounded-xl transition-all duration-300 bg-theme-bg border border-theme-border text-theme-text placeholder:text-theme-text-mute focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
   }
 
-  /* 反馈消息 */
+  /* 表单标签 */
+  .form-label {
+    @apply block text-sm font-medium text-theme-text-soft mb-2 transition-colors;
+  }
+
+  /* ==================== 反馈消息 ==================== */
+
   .error-message {
     @apply p-3 rounded-xl text-sm bg-red-50 border border-red-200 text-red-600;
   }
@@ -74,5 +184,11 @@
 
   :is(html.dark) .success-message {
     @apply bg-green-900/20 border-green-800 text-green-400;
+  }
+
+  /* ==================== 玻璃卡片 ==================== */
+
+  .glass-card {
+    @apply bg-theme-bg-glass border border-theme-border-soft rounded-2xl shadow-md backdrop-blur-sm transition-colors duration-300;
   }
 }

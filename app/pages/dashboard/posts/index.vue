@@ -75,8 +75,8 @@ const formatDate = (dateStr: string) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-theme-text transition-colors">文章管理</h1>
-        <p class="text-theme-text-mute mt-1 text-sm transition-colors">
+        <h1 class="section-title mb-1">文章管理</h1>
+        <p class="text-caption">
           共 {{ total }} 篇文章
         </p>
       </div>
@@ -94,7 +94,7 @@ const formatDate = (dateStr: string) => {
       <GlassCard padding="p-0" class="overflow-hidden">
         <div v-if="posts.length === 0" class="p-12 text-center">
           <div class="text-6xl mb-4">📝</div>
-          <p class="text-theme-text-mute mb-4 transition-colors">暂无文章</p>
+          <p class="text-caption mb-4">暂无文章</p>
           <NuxtLink
             to="/dashboard/posts/new"
             class="inline-block btn-primary"
@@ -120,16 +120,14 @@ const formatDate = (dateStr: string) => {
               class="table-row"
             >
               <td class="table-cell">
-                <div class="font-medium text-theme-text transition-colors">{{ post.title }}</div>
-                <div class="text-xs text-theme-text-mute mt-1 transition-colors">
-                  <span v-for="tag in post.tags" :key="tag" class="mr-2"
-                    >#{{ tag }}</span
-                  >
+                <div class="item-title">{{ post.title }}</div>
+                <div class="text-tiny mt-1">
+                  <span v-for="tag in post.tags" :key="tag" class="mr-2">#{{ tag }}</span>
                 </div>
               </td>
               <td class="table-cell">
                 <span
-                  class="px-2.5 py-1 text-xs rounded-full font-medium"
+                  class="badge"
                   :class="
                     post.status === 'published'
                       ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300'

@@ -181,8 +181,8 @@ const truncateContent = (content: string, length: number = 200) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-theme-text transition-colors">碎碎念管理</h1>
-        <p class="text-theme-text-mute mt-1 text-sm">
+        <h1 class="section-title mb-1">碎碎念管理</h1>
+        <p class="text-caption">
           共 {{ total }} 条碎碎念
         </p>
       </div>
@@ -220,13 +220,13 @@ const truncateContent = (content: string, length: number = 200) => {
                 </div>
                 <div
                   v-if="thought.images.length > 4"
-                  class="w-16 h-16 rounded-xl bg-theme-bg-mute flex items-center justify-center text-theme-text-mute transition-colors"
+                  class="w-16 h-16 rounded-xl bg-theme-bg-mute flex items-center justify-center text-caption"
                 >
                   +{{ thought.images.length - 4 }}
                 </div>
               </div>
 
-              <div class="text-sm text-theme-text-mute mt-4 transition-colors">
+              <div class="text-caption mt-4">
                 {{ formatDate(thought.created_at) }}
               </div>
             </div>
@@ -266,7 +266,7 @@ const truncateContent = (content: string, length: number = 200) => {
       <!-- 空状态 -->
       <GlassCard v-else padding="py-12" class="text-center">
         <div class="text-6xl mb-4">💭</div>
-        <p class="text-theme-text-mute mb-4">还没有碎碎念</p>
+        <p class="text-caption mb-4">还没有碎碎念</p>
         <button
           @click="openAddModal"
           class="inline-block px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-xl transition-colors"
@@ -286,7 +286,7 @@ const truncateContent = (content: string, length: number = 200) => {
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <!-- 内容 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             内容 *
           </label>
           <textarea
@@ -295,14 +295,14 @@ const truncateContent = (content: string, length: number = 200) => {
             placeholder="说点什么..."
             class="input resize-none"
           ></textarea>
-          <div class="text-right text-sm text-theme-text-mute mt-1 transition-colors">
+          <div class="text-right text-caption mt-1">
             {{ form.content.length }} 字
           </div>
         </div>
 
         <!-- 图片 -->
         <div>
-          <label class="block text-sm font-medium text-theme-text-soft mb-2">
+          <label class="form-label">
             图片（可选）
           </label>
           <div class="flex gap-2 mb-3">

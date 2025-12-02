@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import bilibiliIcon from '~/assets/svg/bilibili.svg';
-import githubIcon from '~/assets/svg/github.svg';
-import emailIcon from '~/assets/svg/email.svg';
-import qqIcon from '~/assets/svg/qq.svg';
+import bilibiliIcon from "~/assets/svg/bilibili.svg";
+import githubIcon from "~/assets/svg/github.svg";
+import emailIcon from "~/assets/svg/email.svg";
+import qqIcon from "~/assets/svg/qq.svg";
 
 const themeStore = useThemeStore();
 const { isDarkTheme } = storeToRefs(themeStore);
 
 // SEO 元数据 - 首页只显示 PixelFlow
 useSeoMeta({
-  title: 'PixelFlow',
-  titleTemplate: '',
+  title: "PixelFlow",
+  titleTemplate: "",
 });
 
 // ==================== Page Control ====================
@@ -118,9 +118,7 @@ await new Promise((resolve) => setTimeout(resolve, 0));
 </script>
 
 <template>
-  <div
-    class="relative overflow-hidden h-svh w-svw bg-theme-bg-soft"
-  >
+  <div class="relative overflow-hidden h-svh w-svw bg-theme-bg-soft">
     <!-- Page One -->
     <PageSection v-model="current" :index="1">
       <div
@@ -131,20 +129,14 @@ await new Promise((resolve) => setTimeout(resolve, 0));
         class="relative flex flex-col w-full h-full justify-center items-center"
       >
         <div class="z-10 flex flex-col items-start max-w-2xl px-8">
-          <h1
-            class="text-6xl md:text-8xl font-bold mb-6 tracking-tight transition-colors duration-300 text-theme-text"
-          >
-            Yuzi
-          </h1>
-          <p
-            class="text-lg md:text-xl leading-relaxed mb-8 transition-colors duration-300 text-theme-text-soft"
-          >
+          <h1 class="text-hero mb-6">Yuzi</h1>
+          <p class="text-body text-lg md:text-xl mb-8">
             大三在读，目标成为一名全栈工程师。<br />
             热爱技术，相信开源的力量。
           </p>
-          <div class="flex items-center gap-2 font-mono text-sm md:text-base">
+          <div class="flex items-center gap-2 text-mono md:text-base">
             <span class="text-green-600 dark:text-green-400">$</span>
-            <span class="transition-colors duration-300 text-theme-text-soft">
+            <span class="text-theme-text-soft">
               {{ currentText }}
             </span>
             <span class="typing-cursor text-green-600 dark:text-green-400"
@@ -180,14 +172,8 @@ await new Promise((resolve) => setTimeout(resolve, 0));
 
       <div class="relative flex w-full h-full items-center justify-center">
         <div class="text-center z-10 px-8">
-          <h2
-            class="text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 text-theme-text"
-          >
-            探索更多
-          </h2>
-          <p
-            class="text-lg max-w-md mx-auto leading-relaxed transition-colors duration-300 text-theme-text-mute"
-          >
+          <h2 class="page-title text-4xl md:text-5xl mb-6">探索更多</h2>
+          <p class="text-body text-theme-text-mute max-w-md mx-auto">
             在这里分享技术文章、生活随笔、以及一些有趣的想法
           </p>
         </div>
@@ -203,15 +189,11 @@ await new Promise((resolve) => setTimeout(resolve, 0));
       <div class="relative flex flex-col w-full h-full">
         <div class="z-10 m-auto flex flex-col justify-center items-center">
           <h2
-            class="text-3xl md:text-4xl font-light mb-2 tracking-widest transition-colors duration-300 text-theme-text"
+            class="section-title text-3xl md:text-4xl font-light mb-2 tracking-widest"
           >
             联系方式
           </h2>
-          <p
-            class="text-sm mb-12 transition-colors duration-300 text-theme-text-mute"
-          >
-            CONTACT
-          </p>
+          <p class="text-caption mb-12">CONTACT</p>
           <div class="flex gap-8 mb-12">
             <a
               v-for="link in socialLinks"

@@ -60,7 +60,7 @@ onUnmounted(() => {
             class="flex items-center justify-between px-6 py-4 border-b border-theme-border"
           >
             <slot name="header">
-              <h3 class="text-lg font-semibold text-theme-text">
+              <h3 class="card-title mb-0">
                 {{ title }}
               </h3>
             </slot>

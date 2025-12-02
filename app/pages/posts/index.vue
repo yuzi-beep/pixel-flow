@@ -74,9 +74,7 @@ const formatDate = (dateStr: string): string => {
         <!-- 年份标题 -->
         <h2 class="section-title flex items-center gap-2">
           {{ year }}
-          <span class="text-base font-normal text-theme-text-mute"
-            >({{ groupedPosts[year]?.length }})</span
-          >
+          <span class="text-caption text-base font-normal">({{ groupedPosts[year]?.length }})</span>
         </h2>
 
         <!-- 该年份的文章列表 -->
@@ -88,16 +86,12 @@ const formatDate = (dateStr: string): string => {
             class="group flex items-center py-3 border-l-2 pl-6 transition-all duration-300 hover:border-l-accent border-l-theme-border hover:bg-theme-hover"
           >
             <!-- 日期 -->
-            <span
-              class="text-sm w-16 flex-shrink-0 text-theme-text-mute group-hover:text-theme-text-soft transition-all duration-300"
-            >
+            <span class="text-caption w-16 flex-shrink-0 group-hover:text-theme-text-soft">
               {{ formatDate(post.published_at || post.created_at) }}
             </span>
 
             <!-- 标题 -->
-            <span
-              class="flex-1 mx-4 text-theme-text-soft group-hover:text-accent transition-all duration-300 truncate"
-            >
+            <span class="flex-1 mx-4 link group-hover:text-accent truncate">
               {{ post.title }}
             </span>
           </NuxtLink>
@@ -107,7 +101,7 @@ const formatDate = (dateStr: string): string => {
 
     <!-- 无文章时的提示 -->
     <div v-else class="text-center py-20">
-      <p class="text-lg text-theme-text-mute">
+      <p class="text-body text-theme-text-mute">
         暂无文章，敬请期待...
       </p>
     </div>

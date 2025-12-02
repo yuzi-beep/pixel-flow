@@ -12,9 +12,9 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2025-07-15",
   css: [
-    "/assets/styles/tailwind.css",
-    "/assets/styles/variables.scss",
     "/assets/styles/global.scss",
+    "/assets/styles/variables.scss",
+    "/assets/styles/tailwind.css",
   ],
   devtools: { enabled: true },
   modules: ["@nuxtjs/supabase", "@pinia/nuxt"],

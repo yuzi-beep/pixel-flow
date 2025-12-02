@@ -72,7 +72,7 @@ const formatEventDate = (dateStr: string): string => {
     <div v-if="allTags.length > 0" class="flex gap-2 mb-8 flex-wrap">
       <button
         @click="selectedTag = ''"
-        class="px-4 py-2 rounded-full text-sm transition-all duration-300"
+        class="px-4 py-2 rounded-full text-caption transition-all duration-300"
         :class="
           selectedTag === ''
             ? 'bg-accent text-white'
@@ -85,7 +85,7 @@ const formatEventDate = (dateStr: string): string => {
         v-for="tag in allTags"
         :key="tag"
         @click="selectedTag = tag"
-        class="px-4 py-2 rounded-full text-sm transition-all duration-300"
+        class="px-4 py-2 rounded-full text-caption transition-all duration-300"
         :class="
           selectedTag === tag
             ? 'bg-accent text-white'
@@ -112,7 +112,7 @@ const formatEventDate = (dateStr: string): string => {
         <!-- 年份标题 -->
         <div class="relative flex items-center mb-8">
           <h2
-            class="ml-12 md:ml-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-lg font-bold"
+            class="ml-12 md:ml-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full card-title mb-0"
           >
             {{ year }}
           </h2>
@@ -142,19 +142,16 @@ const formatEventDate = (dateStr: string): string => {
               "
             >
               <!-- 日期 -->
-              <div class="text-sm text-theme-text-mute mb-2">
+              <div class="text-caption mb-2">
                 {{ formatEventDate(event.event_date) }}
               </div>
               <!-- 标题 -->
-              <h3 class="text-lg font-semibold mb-2 text-theme-text">
+              <h3 class="card-title mb-2">
                 {{ event.title }}
               </h3>
 
               <!-- 描述 - 使用 Markdown 渲染 -->
-              <div
-                v-if="event.description"
-                class="text-sm text-theme-text-soft"
-              >
+              <div v-if="event.description" class="text-body text-sm">
                 <MarkdownPreview :content="event.description" />
               </div>
 
@@ -166,7 +163,7 @@ const formatEventDate = (dateStr: string): string => {
                 <span
                   v-for="tag in event.tags"
                   :key="tag"
-                  class="px-3 py-1 text-xs rounded-full"
+                  class="px-3 py-1 text-tiny rounded-full"
                   :style="{
                     backgroundColor: (event.color || '#3B82F6') + '20',
                     color: event.color || '#3B82F6',
@@ -183,7 +180,7 @@ const formatEventDate = (dateStr: string): string => {
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">📅</div>
-      <p class="text-lg text-theme-text-mute">
+      <p class="text-body text-theme-text-mute">
         暂无事件记录，敬请期待...
       </p>
     </div>

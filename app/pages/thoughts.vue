@@ -75,13 +75,9 @@ const formatRelativeTime = (dateStr: string): string => {
         class="py-6 first:pt-0"
       >
         <!-- 头部信息：编号和时间 -->
-        <div class="flex items-center gap-3 mb-3 text-sm">
-          <span class="font-mono text-accent font-semibold"
-            >#{{ pagination.total - index }}</span
-          >
-          <span class="text-theme-text-mute"
-            >发布于 {{ formatRelativeTime(thought.created_at) }}</span
-          >
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-mono text-accent font-semibold">#{{ pagination.total - index }}</span>
+          <span class="text-caption">发布于 {{ formatRelativeTime(thought.created_at) }}</span>
         </div>
 
         <!-- 内容 - 使用 Markdown 渲染 -->
@@ -116,7 +112,7 @@ const formatRelativeTime = (dateStr: string): string => {
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">💭</div>
-      <p class="text-lg text-theme-text-mute">
+      <p class="text-body text-theme-text-mute">
         暂无碎碎念，敬请期待...
       </p>
     </div>
