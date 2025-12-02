@@ -1,15 +1,17 @@
+// ==================== 全局样式 ====================
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
 
+// 基础重置
 * {
   box-sizing: border-box;
   outline: none;
   border: none;
   text-decoration: none;
   font-family: "ZCOOL KuaiLe", sans-serif;
-}
 
-::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 html,
@@ -17,12 +19,7 @@ body {
   padding: 0;
   margin: 0;
   transition: background-color 0.3s ease;
-  background-color: #ffffff;
-}
-
-html.dark,
-html.dark body {
-  background-color: #0a0a0f;
+  background-color: var(--color-bg);
 }
 
 svg {

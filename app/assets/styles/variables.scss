@@ -1,0 +1,83 @@
+// ==================== 主题变量 ====================
+
+// 明亮主题
+:root {
+  // 背景色
+  --color-bg: #ffffff;
+  --color-bg-soft: #fafafa;
+  --color-bg-mute: #f3f4f6;
+  --color-bg-glass: rgba(255, 255, 255, 0.7);
+
+  // 文字色
+  --color-text: #111827;
+  --color-text-soft: #4b5563;
+  --color-text-mute: #9ca3af;
+
+  // 边框色
+  --color-border: #e5e7eb;
+  --color-border-soft: rgba(229, 231, 235, 0.5);
+
+  // 交互色
+  --color-hover: #f3f4f6;
+  --color-active: #e5e7eb;
+
+  // 分割线
+  --color-divider: #e5e7eb;
+
+  // 强调色
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+
+  // 背景渐变
+  --gradient-page: linear-gradient(
+    to bottom right,
+    rgb(219 234 254 / 0.8),
+    rgb(224 231 255 / 0.6),
+    rgb(243 232 255 / 0.8)
+  );
+  --gradient-dashboard: linear-gradient(
+    to bottom right,
+    rgb(239 246 255 / 0.8),
+    rgb(238 242 255 / 0.6),
+    rgb(250 245 255 / 0.8)
+  );
+}
+
+// 暗色主题
+html.dark {
+  // 背景色
+  --color-bg: #0a0a0f;
+  --color-bg-soft: #111827;
+  --color-bg-mute: #1f2937;
+  --color-bg-glass: rgba(31, 41, 55, 0.7);
+
+  // 文字色
+  --color-text: rgba(255, 255, 255, 0.9);
+  --color-text-soft: rgba(255, 255, 255, 0.7);
+  --color-text-mute: rgba(255, 255, 255, 0.4);
+
+  // 边框色
+  --color-border: #374151;
+  --color-border-soft: rgba(55, 65, 81, 0.5);
+
+  // 交互色
+  --color-hover: rgba(255, 255, 255, 0.1);
+  --color-active: rgba(255, 255, 255, 0.15);
+
+  // 分割线
+  --color-divider: #374151;
+
+  // 背景渐变
+  --gradient-page: linear-gradient(
+    to bottom right,
+    rgb(17 24 39),
+    rgb(10 10 15),
+    rgb(15 23 42)
+  );
+  --gradient-dashboard: linear-gradient(
+    to bottom right,
+    rgb(17 24 39),
+    rgb(10 10 15),
+    rgb(15 23 42)
+  );
+}

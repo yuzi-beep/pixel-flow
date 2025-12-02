@@ -63,14 +63,8 @@ const formatDate = (dateStr: string): string => {
 <template>
   <PageWrapper>
     <!-- 页面标题 -->
-    <h1
-      class="text-4xl font-bold mb-4 transition-colors duration-300 text-gray-900 dark:text-white"
-    >
-      文章
-    </h1>
-    <p
-      class="text-base text-gray-600 dark:text-gray-400 mb-12 transition-colors duration-300"
-    >
+    <h1 class="page-title">文章</h1>
+    <p class="page-subtitle">
       共 {{ totalPosts }} 篇文章，按年份分组展示。
     </p>
 
@@ -78,11 +72,9 @@ const formatDate = (dateStr: string): string => {
     <div v-if="Object.keys(groupedPosts).length > 0" class="space-y-12">
       <section v-for="year in sortedYears" :key="year">
         <!-- 年份标题 -->
-        <h2
-          class="text-2xl font-bold mb-6 flex items-center gap-2 transition-colors duration-300 text-gray-900 dark:text-white"
-        >
+        <h2 class="section-title flex items-center gap-2">
           {{ year }}
-          <span class="text-base font-normal text-gray-500 dark:text-gray-400"
+          <span class="text-base font-normal text-theme-text-mute"
             >({{ groupedPosts[year]?.length }})</span
           >
         </h2>
@@ -93,18 +85,18 @@ const formatDate = (dateStr: string): string => {
             v-for="post in groupedPosts[year]"
             :key="post.id"
             :to="`/posts/${post.id}`"
-            class="group flex items-center py-3 border-l-2 pl-6 transition-all duration-300 hover:border-l-blue-500 border-l-gray-200 dark:border-l-gray-700 hover:bg-gray-100/50 dark:hover:bg-gray-800/30"
+            class="group flex items-center py-3 border-l-2 pl-6 transition-all duration-300 hover:border-l-accent border-l-theme-border hover:bg-theme-hover"
           >
             <!-- 日期 -->
             <span
-              class="text-sm w-16 flex-shrink-0 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-all duration-300"
+              class="text-sm w-16 flex-shrink-0 text-theme-text-mute group-hover:text-theme-text-soft transition-all duration-300"
             >
               {{ formatDate(post.published_at || post.created_at) }}
             </span>
 
             <!-- 标题 -->
             <span
-              class="flex-1 mx-4 text-gray-800 dark:text-gray-200 group-hover:text-blue-500 transition-all duration-300 truncate"
+              class="flex-1 mx-4 text-theme-text-soft group-hover:text-accent transition-all duration-300 truncate"
             >
               {{ post.title }}
             </span>
@@ -115,7 +107,7 @@ const formatDate = (dateStr: string): string => {
 
     <!-- 无文章时的提示 -->
     <div v-else class="text-center py-20">
-      <p class="text-lg text-gray-500 dark:text-gray-400">
+      <p class="text-lg text-theme-text-mute">
         暂无文章，敬请期待...
       </p>
     </div>

@@ -177,11 +177,11 @@ const submitButtonText = computed(() => {
       <div class="flex items-center gap-4">
         <NuxtLink
           to="/dashboard/posts"
-          class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+          class="text-theme-text-mute hover:text-theme-text transition-colors"
         >
           ← 返回
         </NuxtLink>
-        <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+        <h1 class="text-xl font-bold text-theme-text">
           {{ pageTitle }}
         </h1>
       </div>
@@ -190,7 +190,7 @@ const submitButtonText = computed(() => {
         <!-- 主题切换 -->
         <button
           @click="themeStore.toggleTheme()"
-          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
+          class="p-2 rounded-lg hover:bg-theme-hover transition-colors text-theme-text-soft"
           title="切换主题"
         >
           <span class="text-lg dark:hidden">🌙</span>
@@ -199,15 +199,15 @@ const submitButtonText = computed(() => {
 
         <!-- 视图模式切换 -->
         <div
-          class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1"
+          class="flex items-center bg-theme-bg-mute rounded-lg p-1"
         >
           <button
             @click="viewMode = 'edit'"
             class="px-3 py-1.5 text-sm rounded-md transition-all"
             :class="
               viewMode === 'edit'
-                ? 'bg-white dark:bg-gray-700 shadow text-gray-900 dark:text-white'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'bg-theme-bg shadow text-theme-text'
+                : 'text-theme-text-mute hover:text-theme-text'
             "
           >
             编辑
@@ -217,8 +217,8 @@ const submitButtonText = computed(() => {
             class="px-3 py-1.5 text-sm rounded-md transition-all"
             :class="
               viewMode === 'split'
-                ? 'bg-white dark:bg-gray-700 shadow text-gray-900 dark:text-white'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'bg-theme-bg shadow text-theme-text'
+                : 'text-theme-text-mute hover:text-theme-text'
             "
           >
             分屏
@@ -228,8 +228,8 @@ const submitButtonText = computed(() => {
             class="px-3 py-1.5 text-sm rounded-md transition-all"
             :class="
               viewMode === 'preview'
-                ? 'bg-white dark:bg-gray-700 shadow text-gray-900 dark:text-white'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'bg-theme-bg shadow text-theme-text'
+                : 'text-theme-text-mute hover:text-theme-text'
             "
           >
             预览
@@ -238,15 +238,15 @@ const submitButtonText = computed(() => {
 
         <!-- 状态选择 -->
         <div
-          class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1"
+          class="flex items-center bg-theme-bg-mute rounded-lg p-1"
         >
           <button
             @click="form.status = 'draft'"
             class="px-3 py-1.5 text-sm rounded-md transition-all"
             :class="
               form.status === 'draft'
-                ? 'bg-white dark:bg-gray-700 shadow text-gray-900 dark:text-white'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'bg-theme-bg shadow text-theme-text'
+                : 'text-theme-text-mute hover:text-theme-text'
             "
           >
             草稿
@@ -256,8 +256,8 @@ const submitButtonText = computed(() => {
             class="px-3 py-1.5 text-sm rounded-md transition-all"
             :class="
               form.status === 'published'
-                ? 'bg-white dark:bg-gray-700 shadow text-gray-900 dark:text-white'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                ? 'bg-theme-bg shadow text-theme-text'
+                : 'text-theme-text-mute hover:text-theme-text'
             "
           >
             发布
@@ -268,7 +268,7 @@ const submitButtonText = computed(() => {
         <button
           @click="handleSubmit"
           :disabled="isSubmitting"
-          class="px-4 py-2 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors"
+          class="btn-primary text-sm"
         >
           {{ submitButtonText }}
         </button>
@@ -278,7 +278,7 @@ const submitButtonText = computed(() => {
     <!-- 错误提示 -->
     <div
       v-if="errorMessage"
-      class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-600 dark:text-red-400 text-sm flex-shrink-0"
+      class="error-message mb-4 flex-shrink-0"
     >
       {{ errorMessage }}
     </div>
@@ -289,8 +289,6 @@ const submitButtonText = computed(() => {
       <GlassCard
         padding="p-0"
         rounded="rounded-xl"
-        bg-light="bg-white/90"
-        bg-dark="dark:bg-gray-800/90"
         class="flex flex-col overflow-hidden transition-all"
         :class="
           viewMode === 'preview'
@@ -302,37 +300,37 @@ const submitButtonText = computed(() => {
       >
         <!-- 编辑器头部 -->
         <div
-          class="p-4 border-b border-gray-200 dark:border-gray-700 space-y-3 flex-shrink-0"
+          class="p-4 border-b border-theme-border space-y-3 flex-shrink-0"
         >
           <!-- 标题输入 -->
           <input
             v-model="form.title"
             type="text"
             placeholder="输入文章标题..."
-            class="w-full text-xl font-bold border-none bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+            class="w-full text-xl font-bold border-none bg-transparent outline-none text-theme-text placeholder-theme-text-mute"
           />
 
           <!-- 作者和标签 -->
           <div class="flex items-center gap-4 text-sm">
             <div class="flex items-center gap-2">
-              <span class="text-gray-500 dark:text-gray-400">作者:</span>
+              <span class="text-theme-text-mute">作者:</span>
               <input
                 v-model="form.author"
                 type="text"
                 placeholder="可选"
-                class="w-24 px-2 py-1 bg-transparent rounded text-gray-900 dark:text-white placeholder-gray-400 border border-gray-200 dark:border-gray-700 outline-none text-sm focus:border-blue-500"
+                class="w-24 px-2 py-1 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-sm focus:border-accent"
               />
             </div>
 
             <div class="flex items-center gap-2 flex-1 min-w-0">
-              <span class="text-gray-500 dark:text-gray-400 flex-shrink-0"
+              <span class="text-theme-text-mute flex-shrink-0"
                 >标签:</span
               >
               <div class="flex items-center gap-1 flex-wrap flex-1 min-w-0">
                 <span
                   v-for="(tag, index) in form.tags"
                   :key="tag"
-                  class="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded text-xs flex items-center gap-1 flex-shrink-0"
+                  class="px-2 py-0.5 bg-accent/10 text-accent rounded text-xs flex items-center gap-1 flex-shrink-0"
                 >
                   #{{ tag }}
                   <button
@@ -348,7 +346,7 @@ const submitButtonText = computed(() => {
                   type="text"
                   placeholder="添加标签..."
                   @keydown.enter.prevent="addTag"
-                  class="w-20 px-2 py-0.5 bg-transparent rounded text-gray-900 dark:text-white placeholder-gray-400 border border-gray-200 dark:border-gray-700 outline-none text-xs focus:border-blue-500 flex-shrink-0"
+                  class="w-20 px-2 py-0.5 bg-transparent rounded text-theme-text placeholder-theme-text-mute border border-theme-border outline-none text-xs focus:border-accent flex-shrink-0"
                 />
               </div>
             </div>
@@ -360,7 +358,7 @@ const submitButtonText = computed(() => {
           <textarea
             v-model="form.content"
             placeholder="使用 Markdown 编写文章内容..."
-            class="w-full h-full resize-none bg-transparent border-none outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 font-mono text-sm leading-relaxed"
+            class="w-full h-full resize-none bg-transparent border-none outline-none text-theme-text placeholder-theme-text-mute font-mono text-sm leading-relaxed"
           ></textarea>
         </div>
       </GlassCard>
@@ -369,8 +367,6 @@ const submitButtonText = computed(() => {
       <GlassCard
         padding="p-0"
         rounded="rounded-xl"
-        bg-light="bg-white/90"
-        bg-dark="dark:bg-gray-800/90"
         class="flex flex-col overflow-hidden transition-all"
         :class="
           viewMode === 'edit'
@@ -382,10 +378,10 @@ const submitButtonText = computed(() => {
       >
         <!-- 预览头部 -->
         <div
-          class="p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0"
+          class="p-4 border-b border-theme-border flex-shrink-0"
         >
           <div
-            class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400"
+            class="flex items-center gap-2 text-sm text-theme-text-mute"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -416,13 +412,13 @@ const submitButtonText = computed(() => {
           <!-- 预览标题 -->
           <h1
             v-if="form.title"
-            class="text-3xl font-bold text-gray-900 dark:text-white mb-4"
+            class="text-3xl font-bold text-theme-text mb-4"
           >
             {{ form.title }}
           </h1>
           <div
             v-else
-            class="text-3xl font-bold text-gray-300 dark:text-gray-600 mb-4 italic"
+            class="text-3xl font-bold text-theme-text-mute mb-4 italic"
           >
             无标题
           </div>
@@ -430,14 +426,14 @@ const submitButtonText = computed(() => {
           <!-- 预览元信息 -->
           <div
             v-if="form.author || form.tags.length"
-            class="flex items-center gap-3 mb-6 text-sm text-gray-500 dark:text-gray-400"
+            class="flex items-center gap-3 mb-6 text-sm text-theme-text-mute"
           >
             <span v-if="form.author">{{ form.author }}</span>
             <div v-if="form.tags.length" class="flex items-center gap-1">
               <span
                 v-for="tag in form.tags"
                 :key="tag"
-                class="text-blue-500 dark:text-blue-400"
+                class="text-accent"
                 >#{{ tag }}</span
               >
             </div>
@@ -445,7 +441,7 @@ const submitButtonText = computed(() => {
 
           <!-- Markdown 内容预览 -->
           <MarkdownPreview v-if="form.content" :content="form.content" />
-          <div v-else class="text-gray-400 dark:text-gray-500 italic">
+          <div v-else class="text-theme-text-mute italic">
             开始编写内容后预览将显示在这里...
           </div>
         </div>

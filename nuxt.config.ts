@@ -1,42 +1,51 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devServer: {
-    host: '0.0.0.0'
+    host: "0.0.0.0",
   },
-  compatibilityDate: '2025-07-15',
-  css: ["/assets/styles/main.scss"],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  compatibilityDate: "2025-07-15",
+  css: [
+    "/assets/styles/tailwind.css",
+    "/assets/styles/variables.scss",
+    "/assets/styles/global.scss",
+  ],
   devtools: { enabled: true },
-  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', '@pinia/nuxt'],
+  modules: ["@nuxtjs/supabase", "@pinia/nuxt"],
 
   // 全局 head 配置
   app: {
     head: {
-      title: 'PixelFlow',
-      titleTemplate: '%s | PixelFlow',
-      link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }
-      ],
+      title: "PixelFlow",
+      titleTemplate: "%s | PixelFlow",
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/logo.svg" }],
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-      ]
-    }
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+      ],
+    },
   },
 
   // Supabase 配置
   supabase: {
     redirectOptions: {
-      login: '/login',
-      callback: '/confirm',
+      login: "/login",
+      callback: "/confirm",
       include: undefined,
-      exclude: ['/*'], // 暂时排除所有页面的重定向
+      exclude: ["/*"], // 暂时排除所有页面的重定向
       saveRedirectToCookie: false,
-    }
+    },
   },
 
   // Vercel 部署配置
   nitro: {
-    preset: 'vercel'
+    preset: "vercel",
   },
 
   // 运行时配置
@@ -47,6 +56,6 @@ export default defineNuxtConfig({
       // 客户端公开配置
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
-    }
-  }
-})
+    },
+  },
+});

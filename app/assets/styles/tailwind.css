@@ -1,0 +1,78 @@
+/* ==================== Tailwind CSS v4 ==================== */
+@import "tailwindcss";
+
+/* 自定义 Tailwind 主题扩展 */
+@theme {
+  /* 语义化颜色 - 映射 CSS 变量 */
+  --color-theme-bg: var(--color-bg);
+  --color-theme-bg-soft: var(--color-bg-soft);
+  --color-theme-bg-mute: var(--color-bg-mute);
+  --color-theme-bg-glass: var(--color-bg-glass);
+
+  --color-theme-text: var(--color-text);
+  --color-theme-text-soft: var(--color-text-soft);
+  --color-theme-text-mute: var(--color-text-mute);
+
+  --color-theme-border: var(--color-border);
+  --color-theme-border-soft: var(--color-border-soft);
+
+  --color-theme-hover: var(--color-hover);
+  --color-theme-active: var(--color-active);
+  --color-theme-divider: var(--color-divider);
+
+  /* 强调色 */
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-soft: #dbeafe;
+  --color-accent-soft-dark: rgba(59, 130, 246, 0.2);
+
+  /* 背景渐变 - 引用 CSS 变量 */
+  --background-image-gradient-page: var(--gradient-page);
+  --background-image-gradient-dashboard: var(--gradient-dashboard);
+}
+
+/* ==================== 组件层 ==================== */
+@layer components {
+  /* 按钮基础 */
+  .btn {
+    @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer bg-accent text-white hover:bg-accent-hover;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer bg-transparent text-theme-text-soft hover:bg-theme-hover hover:text-theme-text;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 rounded-xl transition-all duration-300 font-medium cursor-pointer bg-red-500 text-white hover:bg-red-600;
+  }
+
+  /* 表单输入 */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl transition-all duration-300 bg-theme-bg border border-theme-border text-theme-text placeholder:text-theme-text-mute focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
+  }
+
+  /* 反馈消息 */
+  .error-message {
+    @apply p-3 rounded-xl text-sm bg-red-50 border border-red-200 text-red-600;
+  }
+
+  :is(html.dark) .error-message {
+    @apply bg-red-900/20 border-red-800 text-red-400;
+  }
+
+  .success-message {
+    @apply p-3 rounded-xl text-sm bg-green-50 border border-green-200 text-green-600;
+  }
+
+  :is(html.dark) .success-message {
+    @apply bg-green-900/20 border-green-800 text-green-400;
+  }
+}

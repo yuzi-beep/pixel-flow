@@ -181,8 +181,8 @@ const truncateContent = (content: string, length: number = 200) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white transition-colors">碎碎念管理</h1>
-        <p class="text-gray-500 dark:text-gray-400 mt-1 text-sm">
+        <h1 class="text-2xl font-bold text-theme-text transition-colors">碎碎念管理</h1>
+        <p class="text-theme-text-mute mt-1 text-sm">
           共 {{ total }} 条碎碎念
         </p>
       </div>
@@ -214,19 +214,19 @@ const truncateContent = (content: string, length: number = 200) => {
                 <div
                   v-for="(img, idx) in thought.images.slice(0, 4)"
                   :key="idx"
-                  class="w-16 h-16 rounded-xl bg-gray-100 dark:bg-gray-700 overflow-hidden"
+                  class="w-16 h-16 rounded-xl bg-theme-bg-mute overflow-hidden"
                 >
                   <img :src="img" class="w-full h-full object-cover" />
                 </div>
                 <div
                   v-if="thought.images.length > 4"
-                  class="w-16 h-16 rounded-xl bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-gray-500 dark:text-gray-400 transition-colors"
+                  class="w-16 h-16 rounded-xl bg-theme-bg-mute flex items-center justify-center text-theme-text-mute transition-colors"
                 >
                   +{{ thought.images.length - 4 }}
                 </div>
               </div>
 
-              <div class="text-sm text-gray-500 dark:text-gray-400 mt-4 transition-colors">
+              <div class="text-sm text-theme-text-mute mt-4 transition-colors">
                 {{ formatDate(thought.created_at) }}
               </div>
             </div>
@@ -239,7 +239,7 @@ const truncateContent = (content: string, length: number = 200) => {
             </button>
             <button
               @click="openEditModal(thought)"
-              class="text-blue-500 hover:text-blue-700 text-sm shrink-0 transition-colors"
+              class="text-accent hover:text-accent-hover text-sm shrink-0 transition-colors"
             >
               编辑
             </button>
@@ -255,8 +255,8 @@ const truncateContent = (content: string, length: number = 200) => {
             class="px-4 py-2 rounded-xl transition-colors"
             :class="
               currentPage === page
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                ? 'bg-accent text-white'
+                : 'bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover'
             "
           >
             {{ page }}
@@ -266,7 +266,7 @@ const truncateContent = (content: string, length: number = 200) => {
       <!-- 空状态 -->
       <GlassCard v-else padding="py-12" class="text-center">
         <div class="text-6xl mb-4">💭</div>
-        <p class="text-gray-500 dark:text-gray-400 mb-4">还没有碎碎念</p>
+        <p class="text-theme-text-mute mb-4">还没有碎碎念</p>
         <button
           @click="openAddModal"
           class="inline-block px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-xl transition-colors"
@@ -286,27 +286,23 @@ const truncateContent = (content: string, length: number = 200) => {
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <!-- 内容 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             内容 *
           </label>
           <textarea
             v-model="form.content"
             rows="5"
             placeholder="说点什么..."
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none transition-all"
+            class="input resize-none"
           ></textarea>
-          <div class="text-right text-sm text-gray-500 dark:text-gray-400 mt-1 transition-colors">
+          <div class="text-right text-sm text-theme-text-mute mt-1 transition-colors">
             {{ form.content.length }} 字
           </div>
         </div>
 
         <!-- 图片 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             图片（可选）
           </label>
           <div class="flex gap-2 mb-3">
@@ -315,12 +311,12 @@ const truncateContent = (content: string, length: number = 200) => {
               type="url"
               placeholder="输入图片URL"
               @keydown.enter.prevent="addImage"
-              class="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              class="input flex-1"
             />
             <button
               type="button"
               @click="addImage"
-              class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              class="btn-secondary"
             >
               添加
             </button>
@@ -331,7 +327,7 @@ const truncateContent = (content: string, length: number = 200) => {
             <div
               v-for="(img, index) in form.images"
               :key="index"
-              class="relative aspect-square rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700"
+              class="relative aspect-square rounded-xl overflow-hidden bg-theme-bg-mute"
             >
               <img :src="img" class="w-full h-full object-cover" />
               <button
@@ -346,10 +342,7 @@ const truncateContent = (content: string, length: number = 200) => {
         </div>
 
         <!-- 错误提示 -->
-        <div
-          v-if="errorMessage"
-          class="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm"
-        >
+        <div v-if="errorMessage" class="error-message">
           {{ errorMessage }}
         </div>
       </form>
@@ -359,7 +352,7 @@ const truncateContent = (content: string, length: number = 200) => {
           <button
             type="button"
             @click="showModal = false"
-            class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            class="btn-secondary"
           >
             取消
           </button>

@@ -75,14 +75,14 @@ const formatDate = (dateStr: string) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white transition-colors">文章管理</h1>
-        <p class="text-gray-500 dark:text-gray-400 mt-1 text-sm transition-colors">
+        <h1 class="text-2xl font-bold text-theme-text transition-colors">文章管理</h1>
+        <p class="text-theme-text-mute mt-1 text-sm transition-colors">
           共 {{ total }} 篇文章
         </p>
       </div>
       <NuxtLink
         to="/dashboard/posts/new"
-        class="px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-blue-500/25"
+        class="px-5 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-accent/25"
       >
         <span>✍️</span>
         写文章
@@ -94,60 +94,40 @@ const formatDate = (dateStr: string) => {
       <GlassCard padding="p-0" class="overflow-hidden">
         <div v-if="posts.length === 0" class="p-12 text-center">
           <div class="text-6xl mb-4">📝</div>
-          <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors">暂无文章</p>
+          <p class="text-theme-text-mute mb-4 transition-colors">暂无文章</p>
           <NuxtLink
             to="/dashboard/posts/new"
-            class="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-colors"
+            class="inline-block btn-primary"
           >
             写第一篇文章
           </NuxtLink>
         </div>
 
         <table v-else class="w-full">
-          <thead class="bg-gray-50/50 dark:bg-gray-900/50">
+          <thead class="bg-theme-bg-soft">
             <tr>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                标题
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                状态
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                浏览
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                创建时间
-              </th>
-              <th
-                class="px-6 py-4 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                操作
-              </th>
+              <th class="table-header">标题</th>
+              <th class="table-header">状态</th>
+              <th class="table-header">浏览</th>
+              <th class="table-header">创建时间</th>
+              <th class="table-header text-right">操作</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody class="divide-y divide-theme-divider">
             <tr
               v-for="post in posts"
               :key="post.id"
-              class="hover:bg-gray-50/50 dark:hover:bg-gray-700/30 transition-colors"
+              class="table-row"
             >
-              <td class="px-6 py-4">
-                <div class="font-medium text-gray-900 dark:text-white transition-colors">{{ post.title }}</div>
-                <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors">
+              <td class="table-cell">
+                <div class="font-medium text-theme-text transition-colors">{{ post.title }}</div>
+                <div class="text-xs text-theme-text-mute mt-1 transition-colors">
                   <span v-for="tag in post.tags" :key="tag" class="mr-2"
                     >#{{ tag }}</span
                   >
                 </div>
               </td>
-              <td class="px-6 py-4">
+              <td class="table-cell">
                 <span
                   class="px-2.5 py-1 text-xs rounded-full font-medium"
                   :class="
@@ -159,23 +139,23 @@ const formatDate = (dateStr: string) => {
                   {{ post.status === "published" ? "已发布" : "草稿" }}
                 </span>
               </td>
-              <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 transition-colors">
+              <td class="table-cell-muted">
                 {{ post.view_count || 0 }}
               </td>
-              <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 transition-colors">
+              <td class="table-cell-muted">
                 {{ formatDate(post.created_at) }}
               </td>
-              <td class="px-6 py-4 text-right space-x-3">
+              <td class="table-cell text-right space-x-3">
                 <NuxtLink
                   :to="`/posts/${post.id}`"
                   target="_blank"
-                  class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                  class="link"
                 >
                   查看
                 </NuxtLink>
                 <NuxtLink
                   :to="`/dashboard/posts/${post.id}`"
-                  class="text-blue-500 hover:text-blue-700 transition-colors"
+                  class="text-accent hover:text-accent-hover transition-colors"
                 >
                   编辑
                 </NuxtLink>
@@ -193,7 +173,7 @@ const formatDate = (dateStr: string) => {
         <!-- 分页 -->
         <div
           v-if="totalPages > 1"
-          class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-center gap-2"
+          class="px-6 py-4 border-t border-theme-border flex justify-center gap-2"
         >
           <button
             v-for="page in totalPages"
@@ -202,8 +182,8 @@ const formatDate = (dateStr: string) => {
             class="px-4 py-2 rounded-xl transition-colors"
             :class="
               currentPage === page
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                ? 'bg-accent text-white'
+                : 'bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover'
             "
           >
             {{ page }}

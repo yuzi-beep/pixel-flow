@@ -7,7 +7,7 @@ const themeStore = useThemeStore();
     <Transition name="loader">
       <div
         v-if="themeStore.isLoading"
-        class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#0a0a0f]"
+        class="fixed inset-0 z-999 flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#0a0a0f]"
       >
         <div class="loading-content">
           <div

@@ -16,7 +16,7 @@ defineExpose({
 
 <template>
   <div
-    class="h-[100svh] pt-[75px] flex flex-col transition-colors duration-300 bg-white dark:bg-[#0a0a0f]"
+    class="h-svh pt-[75px] flex flex-col transition-colors duration-300 bg-theme-bg"
   >
     <div
       ref="scrollContainerRef"

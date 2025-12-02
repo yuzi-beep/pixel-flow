@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import bilibiliIcon from '~/assets/svg/bilibili.svg';
+import githubIcon from '~/assets/svg/github.svg';
+import emailIcon from '~/assets/svg/email.svg';
+import qqIcon from '~/assets/svg/qq.svg';
+
 const themeStore = useThemeStore();
 const { isDarkTheme } = storeToRefs(themeStore);
 
@@ -76,23 +81,23 @@ const typeWriter = () => {
 const socialLinks = [
   {
     name: "Bilibili",
-    icon: "_nuxt/assets/svg/bilibili.svg",
+    icon: bilibiliIcon,
     url: "",
     enabled: true,
   },
   {
     name: "GitHub",
-    icon: "_nuxt/assets/svg/github.svg",
+    icon: githubIcon,
     url: "",
     enabled: true,
   },
   {
     name: "Email",
-    icon: "_nuxt/assets/svg/email.svg",
+    icon: emailIcon,
     url: "mailto:tohoooosi@outlook.com",
     enabled: true,
   },
-  { name: "QQ", icon: "_nuxt/assets/svg/qq.svg", url: "", enabled: false },
+  { name: "QQ", icon: qqIcon, url: "", enabled: false },
 ];
 
 // ==================== Lifecycle ====================
@@ -114,7 +119,7 @@ await new Promise((resolve) => setTimeout(resolve, 0));
 
 <template>
   <div
-    class="relative overflow-hidden h-svh w-svw bg-[#fafafa] dark:bg-[#0a0a0f]"
+    class="relative overflow-hidden h-svh w-svw bg-theme-bg-soft"
   >
     <!-- Page One -->
     <PageSection v-model="current" :index="1">
@@ -127,21 +132,19 @@ await new Promise((resolve) => setTimeout(resolve, 0));
       >
         <div class="z-10 flex flex-col items-start max-w-2xl px-8">
           <h1
-            class="text-6xl md:text-8xl font-bold mb-6 tracking-tight transition-colors duration-300 text-gray-900 dark:text-white"
+            class="text-6xl md:text-8xl font-bold mb-6 tracking-tight transition-colors duration-300 text-theme-text"
           >
             Yuzi
           </h1>
           <p
-            class="text-lg md:text-xl leading-relaxed mb-8 transition-colors duration-300 text-gray-700 dark:text-white/60"
+            class="text-lg md:text-xl leading-relaxed mb-8 transition-colors duration-300 text-theme-text-soft"
           >
             大三在读，目标成为一名全栈工程师。<br />
             热爱技术，相信开源的力量。
           </p>
           <div class="flex items-center gap-2 font-mono text-sm md:text-base">
             <span class="text-green-600 dark:text-green-400">$</span>
-            <span
-              class="transition-colors duration-300 text-gray-700 dark:text-white/70"
-            >
+            <span class="transition-colors duration-300 text-theme-text-soft">
               {{ currentText }}
             </span>
             <span class="typing-cursor text-green-600 dark:text-green-400"
@@ -153,7 +156,7 @@ await new Promise((resolve) => setTimeout(resolve, 0));
           class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce"
         >
           <svg
-            class="w-5 h-5 transition-colors duration-300 text-gray-400 dark:text-white/30"
+            class="w-5 h-5 transition-colors duration-300 text-theme-text-mute"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -178,12 +181,12 @@ await new Promise((resolve) => setTimeout(resolve, 0));
       <div class="relative flex w-full h-full items-center justify-center">
         <div class="text-center z-10 px-8">
           <h2
-            class="text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 text-gray-900 dark:text-white"
+            class="text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300 text-theme-text"
           >
             探索更多
           </h2>
           <p
-            class="text-lg max-w-md mx-auto leading-relaxed transition-colors duration-300 text-gray-700 dark:text-white/50"
+            class="text-lg max-w-md mx-auto leading-relaxed transition-colors duration-300 text-theme-text-mute"
           >
             在这里分享技术文章、生活随笔、以及一些有趣的想法
           </p>
@@ -200,12 +203,12 @@ await new Promise((resolve) => setTimeout(resolve, 0));
       <div class="relative flex flex-col w-full h-full">
         <div class="z-10 m-auto flex flex-col justify-center items-center">
           <h2
-            class="text-3xl md:text-4xl font-light mb-2 tracking-widest transition-colors duration-300 text-gray-900 dark:text-white"
+            class="text-3xl md:text-4xl font-light mb-2 tracking-widest transition-colors duration-300 text-theme-text"
           >
             联系方式
           </h2>
           <p
-            class="text-sm mb-12 transition-colors duration-300 text-gray-600 dark:text-white/40"
+            class="text-sm mb-12 transition-colors duration-300 text-theme-text-mute"
           >
             CONTACT
           </p>

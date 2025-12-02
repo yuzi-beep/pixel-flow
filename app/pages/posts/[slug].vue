@@ -56,7 +56,7 @@ const scrollToTop = () => {
       <!-- 返回按钮 -->
       <NuxtLink
         to="/posts"
-        class="inline-flex items-center gap-2 mb-8 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+        class="inline-flex items-center gap-2 mb-8 text-sm link"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -77,16 +77,12 @@ const scrollToTop = () => {
       <!-- 文章头部 -->
       <header>
         <!-- 标题 -->
-        <h1
-          class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-900 dark:text-white"
-        >
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-theme-text">
           {{ post.title }}
         </h1>
 
         <!-- 文章元信息 -->
-        <div
-          class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400"
-        >
+        <div class="flex flex-wrap items-center gap-4 text-sm text-theme-text-mute">
           <!-- 作者 -->
           <span v-if="post.author" class="flex items-center gap-1">
             <svg
@@ -134,24 +130,24 @@ const scrollToTop = () => {
           <span
             v-for="tag in post.tags"
             :key="tag"
-            class="px-3 py-1 text-xs rounded-full transition-colors bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+            class="badge"
           >
             #{{ tag }}
           </span>
         </div>
       </header>
       <!-- 分隔线 -->
-      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
+      <hr class="divider" />
       <!-- 文章内容 -->
       <MarkdownPreview :content="post.content"></MarkdownPreview>
       <!-- 分隔线 -->
-      <hr class="my-10 h-0.5 w-full bg-gray-200 dark:bg-gray-700 border-none" />
+      <hr class="divider" />
       <!-- 文章底部 -->
-      <footer class="border-t border-gray-200 dark:border-gray-700">
+      <footer class="border-t border-theme-border">
         <div class="flex justify-between items-center">
           <NuxtLink
             to="/posts"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="inline-flex items-center gap-2 btn-secondary"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +169,7 @@ const scrollToTop = () => {
           <!-- 回到顶部 -->
           <button
             @click="scrollToTop"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="inline-flex items-center gap-2 btn-secondary"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -196,15 +192,15 @@ const scrollToTop = () => {
     </article>
     <!-- 文章未找到 -->
     <div v-else class="py-20 text-center">
-      <h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+      <h1 class="text-2xl font-bold mb-4 text-theme-text">
         文章未找到
       </h1>
-      <p class="text-gray-500 dark:text-gray-400 mb-8">
+      <p class="text-theme-text-mute mb-8">
         抱歉，您访问的文章不存在或已被删除。
       </p>
       <NuxtLink
         to="/posts"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg transition-colors bg-blue-500 text-white hover:bg-blue-600"
+        class="btn-primary inline-flex items-center gap-2 px-6 py-3"
       >
         返回文章列表
       </NuxtLink>

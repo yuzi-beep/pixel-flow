@@ -53,15 +53,13 @@ const navMaxWidth = computed(() => {
           <!-- Logo -->
           <NuxtLink to="/" class="flex flex-col">
             <div
-              class="font-bold tracking-wider transition-all duration-500 text-gray-900 dark:text-white/90"
+              class="font-bold tracking-wider transition-all duration-500 text-theme-text"
               :class="!navbarMode ? 'text-2xl' : 'text-lg'"
             >
               PixelFlow
             </div>
             <Transition name="fade">
-              <div
-                class="text-xs tracking-wide transition-colors duration-300 text-gray-600 dark:text-white/40"
-              >
+              <div class="text-xs tracking-wide transition-colors duration-300 text-theme-text-mute">
                 Yuzi写东西的地方
               </div>
             </Transition>
@@ -73,17 +71,17 @@ const navMaxWidth = computed(() => {
               v-for="item in navItems"
               :key="item.path"
               :to="item.path"
-              class="nav-link text-sm font-medium tracking-wide transition-all duration-300 relative group text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white"
+              class="nav-link relative group"
             >
               {{ item.name }}
               <span
-                class="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-300 group-hover:w-full bg-gray-500 dark:bg-white/50"
+                class="absolute -bottom-1 left-0 w-0 h-[2px] transition-all duration-300 group-hover:w-full bg-theme-text-mute"
               ></span>
             </NuxtLink>
             <!-- Dark Mode Toggle -->
             <button
               @click="themeStore.toggleTheme()"
-              class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 text-gray-600 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10"
+              class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 text-theme-text-soft hover:text-theme-text hover:bg-theme-hover"
             >
               <!-- Moon icon (show when in light mode, click to go dark) -->
               <svg
@@ -121,7 +119,7 @@ const navMaxWidth = computed(() => {
             <div v-if="isAuthenticated && !authLoading" class="relative">
               <button
                 @click="showUserMenu = !showUserMenu"
-                class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 text-gray-600 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10"
+                class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 text-theme-text-soft hover:text-theme-text hover:bg-theme-hover"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,37 +141,37 @@ const navMaxWidth = computed(() => {
               <Transition name="menu">
                 <div
                   v-if="showUserMenu"
-                  class="absolute right-0 mt-2 w-48 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 z-50"
+                  class="absolute right-0 mt-2 w-48 py-2 bg-theme-bg-soft rounded-xl shadow-lg border border-theme-border z-50"
                   @click="closeMenu"
                 >
                   <NuxtLink
                     to="/dashboard"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
                   >
                     📊 仪表盘
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/posts"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
                   >
                     📝 文章管理
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/thoughts"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
                   >
                     💭 碎碎念
                   </NuxtLink>
                   <NuxtLink
                     to="/dashboard/events"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    class="block px-4 py-2 text-sm text-theme-text-soft hover:bg-theme-hover transition-colors"
                   >
                     📅 事件管理
                   </NuxtLink>
-                  <div class="my-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="my-1 h-px bg-theme-divider"></div>
                   <button
                     @click="logout"
-                    class="block w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    class="block w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-theme-hover transition-colors"
                   >
                     🚪 退出登录
                   </button>
@@ -189,7 +187,7 @@ const navMaxWidth = computed(() => {
         :style="{ maxWidth: navMaxWidth }"
       >
         <div
-          class="h-px w-full transition-all duration-500 bg-gray-200 dark:bg-gray-700"
+          class="h-px w-full transition-all duration-500 bg-theme-divider"
           :class="navbarMode ? 'opacity-100' : 'opacity-0'"
         ></div>
       </div>

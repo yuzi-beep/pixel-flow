@@ -75,8 +75,8 @@ const formatEventDate = (dateStr: string): string => {
         class="px-4 py-2 rounded-full text-sm transition-all duration-300"
         :class="
           selectedTag === ''
-            ? 'bg-blue-500 text-white'
-            : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+            ? 'bg-accent text-white'
+            : 'bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover'
         "
       >
         全部
@@ -88,8 +88,8 @@ const formatEventDate = (dateStr: string): string => {
         class="px-4 py-2 rounded-full text-sm transition-all duration-300"
         :class="
           selectedTag === tag
-            ? 'bg-blue-500 text-white'
-            : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+            ? 'bg-accent text-white'
+            : 'bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover'
         "
       >
         {{ tag }}
@@ -100,7 +100,7 @@ const formatEventDate = (dateStr: string): string => {
     <div v-if="filteredEvents.length > 0" class="relative">
       <!-- 时间线轴 -->
       <div
-        class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2"
+        class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-theme-divider transform md:-translate-x-1/2"
       ></div>
 
       <!-- 按年份分组 -->
@@ -112,7 +112,7 @@ const formatEventDate = (dateStr: string): string => {
         <!-- 年份标题 -->
         <div class="relative flex items-center mb-8">
           <h2
-            class="ml-12 md:ml-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-lg font-bold"
+            class="ml-12 md:ml-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-lg font-bold"
           >
             {{ year }}
           </h2>
@@ -136,28 +136,24 @@ const formatEventDate = (dateStr: string): string => {
             <GlassCard
               padding="p-5"
               rounded="rounded-xl"
-              bg-light="bg-white/80"
-              bg-dark="dark:bg-gray-800/80"
               class="ml-12 md:ml-0 md:w-[calc(50%-2rem)] transition-all duration-300"
               :class="
                 index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
               "
             >
               <!-- 日期 -->
-              <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              <div class="text-sm text-theme-text-mute mb-2">
                 {{ formatEventDate(event.event_date) }}
               </div>
               <!-- 标题 -->
-              <h3
-                class="text-lg font-semibold mb-2 text-gray-900 dark:text-white"
-              >
+              <h3 class="text-lg font-semibold mb-2 text-theme-text">
                 {{ event.title }}
               </h3>
 
               <!-- 描述 - 使用 Markdown 渲染 -->
               <div
                 v-if="event.description"
-                class="text-sm text-gray-600 dark:text-gray-300"
+                class="text-sm text-theme-text-soft"
               >
                 <MarkdownPreview :content="event.description" />
               </div>
@@ -187,7 +183,7 @@ const formatEventDate = (dateStr: string): string => {
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">📅</div>
-      <p class="text-lg text-gray-500 dark:text-gray-400">
+      <p class="text-lg text-theme-text-mute">
         暂无事件记录，敬请期待...
       </p>
     </div>

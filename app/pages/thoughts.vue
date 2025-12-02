@@ -59,21 +59,15 @@ const formatRelativeTime = (dateStr: string): string => {
 <template>
   <PageWrapper>
     <!-- 页面标题 -->
-    <h1
-      class="text-4xl font-bold mb-4 transition-colors duration-300 text-gray-900 dark:text-white"
-    >
-      碎碎念
-    </h1>
-    <p
-      class="text-base opacity-60 mb-12 transition-colors duration-300 text-gray-700 dark:text-gray-300"
-    >
+    <h1 class="page-title">碎碎念</h1>
+    <p class="page-subtitle opacity-60">
       Yuzi 发牢骚的小角落，共 {{ pagination.total }} 条内容。
     </p>
 
     <!-- 碎碎念列表 -->
     <div
       v-if="thoughts.length > 0"
-      class="divide-y divide-gray-200 dark:divide-gray-700"
+      class="divide-y divide-theme-divider"
     >
       <div
         v-for="(thought, index) in thoughts"
@@ -82,10 +76,10 @@ const formatRelativeTime = (dateStr: string): string => {
       >
         <!-- 头部信息：编号和时间 -->
         <div class="flex items-center gap-3 mb-3 text-sm">
-          <span class="font-mono text-blue-500 dark:text-blue-400 font-semibold"
+          <span class="font-mono text-accent font-semibold"
             >#{{ pagination.total - index }}</span
           >
-          <span class="text-gray-500 dark:text-gray-400"
+          <span class="text-theme-text-mute"
             >发布于 {{ formatRelativeTime(thought.created_at) }}</span
           >
         </div>
@@ -115,14 +109,14 @@ const formatRelativeTime = (dateStr: string): string => {
         </div>
         <hr
           v-if="index != thoughts.length - 1"
-          class="my-10 h-[1px] w-full bg-gray-200 dark:bg-gray-700 border-none"
+          class="divider"
         />
       </div>
     </div>
     <!-- 无内容时的提示 -->
     <div v-else class="text-center py-20">
       <div class="text-6xl mb-6">💭</div>
-      <p class="text-lg text-gray-500 dark:text-gray-400">
+      <p class="text-lg text-theme-text-mute">
         暂无碎碎念，敬请期待...
       </p>
     </div>
@@ -134,7 +128,7 @@ const formatRelativeTime = (dateStr: string): string => {
     >
       <button
         @click="loadMore"
-        class="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
+        class="btn-secondary px-6 py-3 rounded-full border border-theme-border"
       >
         加载更多
       </button>

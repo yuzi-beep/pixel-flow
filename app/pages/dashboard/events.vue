@@ -206,8 +206,8 @@ const formatDate = (dateStr: string) => {
     <!-- 标题栏 - 固定 -->
     <div class="flex justify-between items-center mb-6 flex-shrink-0">
       <div>
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white transition-colors">事件管理</h1>
-        <p class="text-gray-500 dark:text-gray-400 mt-1 text-sm">
+        <h1 class="text-2xl font-bold text-theme-text transition-colors">事件管理</h1>
+        <p class="text-theme-text-mute mt-1 text-sm">
           共 {{ total }} 个事件
         </p>
       </div>
@@ -225,77 +225,57 @@ const formatDate = (dateStr: string) => {
       <!-- 列表 -->
       <GlassCard v-if="events.length" padding="p-0" class="overflow-hidden">
         <table class="w-full">
-          <thead class="bg-gray-50/50 dark:bg-gray-900/50">
+          <thead class="bg-theme-bg-soft">
             <tr>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                日期
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                标题
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                描述
-              </th>
-              <th
-                class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                标签
-              </th>
-              <th
-                class="px-6 py-4 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider transition-colors"
-              >
-                操作
-              </th>
+              <th class="table-header">日期</th>
+              <th class="table-header">标题</th>
+              <th class="table-header">描述</th>
+              <th class="table-header">标签</th>
+              <th class="table-header text-right">操作</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody class="divide-y divide-theme-divider">
             <tr
               v-for="event in events"
               :key="event.id"
-              class="hover:bg-gray-50/50 dark:hover:bg-gray-700/30 transition-colors"
+              class="table-row"
             >
-              <td class="px-6 py-4 whitespace-nowrap">
+              <td class="table-cell whitespace-nowrap">
                 <div class="flex items-center gap-2">
                   <span
                     v-if="event.color"
                     class="w-3 h-3 rounded-full"
                     :style="{ backgroundColor: event.color }"
                   ></span>
-                  <span class="text-sm text-gray-700 dark:text-gray-300 transition-colors">{{
+                  <span class="text-sm text-theme-text-soft transition-colors">{{
                     formatDate(event.event_date)
                   }}</span>
                 </div>
               </td>
-              <td class="px-6 py-4">
-                <span class="font-medium text-gray-900 dark:text-white transition-colors">{{ event.title }}</span>
+              <td class="table-cell">
+                <span class="font-medium text-theme-text transition-colors">{{ event.title }}</span>
               </td>
-              <td class="px-6 py-4">
+              <td class="table-cell">
                 <div v-if="event.description" class="text-sm">
                   <MarkdownPreview :content="event.description" />
                 </div>
-                <span v-else class="text-sm text-gray-500 dark:text-gray-400 transition-colors">-</span>
+                <span v-else class="text-sm text-theme-text-mute transition-colors">-</span>
               </td>
-              <td class="px-6 py-4">
+              <td class="table-cell">
                 <div class="flex flex-wrap gap-1">
                   <span
                     v-for="tag in event.tags"
                     :key="tag"
-                    class="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs transition-colors"
+                    class="badge"
                   >
                     {{ tag }}
                   </span>
                 </div>
               </td>
-              <td class="px-6 py-4 text-right space-x-3">
+              <td class="table-cell text-right space-x-3">
                 <button
                   @click="openEditModal(event)"
-                  class="text-blue-500 hover:text-blue-700 text-sm transition-colors"
+                  class="text-accent hover:text-accent-hover text-sm transition-colors"
                 >
                   编辑
                 </button>
@@ -313,7 +293,7 @@ const formatDate = (dateStr: string) => {
         <!-- 分页 -->
         <div
           v-if="totalPages > 1"
-          class="flex justify-center gap-2 p-4 border-t border-gray-200 dark:border-gray-700"
+          class="flex justify-center gap-2 p-4 border-t border-theme-border"
         >
           <button
             v-for="page in totalPages"
@@ -322,8 +302,8 @@ const formatDate = (dateStr: string) => {
             class="px-4 py-2 rounded-xl transition-colors"
             :class="
               currentPage === page
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                ? 'bg-accent text-white'
+                : 'bg-theme-bg-mute text-theme-text-soft hover:bg-theme-hover'
             "
           >
             {{ page }}
@@ -333,7 +313,7 @@ const formatDate = (dateStr: string) => {
       <!-- 空状态 -->
       <GlassCard v-else padding="py-12" class="text-center">
         <div class="text-6xl mb-4">📅</div>
-        <p class="text-gray-500 dark:text-gray-400 mb-4">还没有事件</p>
+        <p class="text-theme-text-mute mb-4">还没有事件</p>
         <button
           @click="openAddModal"
           class="inline-block px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-xl transition-colors"
@@ -353,53 +333,45 @@ const formatDate = (dateStr: string) => {
       <form @submit.prevent="handleSubmit" class="space-y-4">
         <!-- 标题 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             标题 *
           </label>
           <input
             v-model="form.title"
             type="text"
             placeholder="事件标题"
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+            class="input"
           />
         </div>
 
         <!-- 日期 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             日期 *
           </label>
           <input
             v-model="form.event_date"
             type="date"
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+            class="input"
           />
         </div>
 
         <!-- 描述 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             描述（可选）
           </label>
           <textarea
             v-model="form.description"
             rows="3"
             placeholder="事件描述..."
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none transition-all"
+            class="input resize-none"
           ></textarea>
         </div>
 
         <!-- 颜色 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             颜色
           </label>
           <div class="flex items-center gap-2">
@@ -423,9 +395,7 @@ const formatDate = (dateStr: string) => {
 
         <!-- 标签 -->
         <div>
-          <label
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
+          <label class="block text-sm font-medium text-theme-text-soft mb-2">
             标签
           </label>
           <div class="flex gap-2 mb-2">
@@ -434,12 +404,12 @@ const formatDate = (dateStr: string) => {
               type="text"
               placeholder="输入标签后按回车"
               @keydown.enter.prevent="addTag"
-              class="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+              class="input flex-1"
             />
             <button
               type="button"
               @click="addTag"
-              class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              class="btn-secondary"
             >
               添加
             </button>
@@ -463,10 +433,7 @@ const formatDate = (dateStr: string) => {
         </div>
 
         <!-- 错误提示 -->
-        <div
-          v-if="errorMessage"
-          class="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm"
-        >
+        <div v-if="errorMessage" class="error-message">
           {{ errorMessage }}
         </div>
       </form>
@@ -476,7 +443,7 @@ const formatDate = (dateStr: string) => {
           <button
             type="button"
             @click="showModal = false"
-            class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            class="btn-secondary"
           >
             取消
           </button>

@@ -19,16 +19,14 @@ const isActive = (path: string) => {
 </script>
 
 <template>
-  <aside class="w-56 flex-shrink-0 flex flex-col gap-4">
+  <aside class="w-56 shrink-0 flex flex-col gap-4">
     <!-- Logo -->
     <GlassCard>
       <NuxtLink to="/" class="flex flex-col">
-        <div
-          class="font-bold tracking-wider text-xl text-gray-900 dark:text-white/90"
-        >
+        <div class="font-bold tracking-wider text-xl text-theme-text">
           PixelFlow
         </div>
-        <div class="text-xs tracking-wide text-gray-600 dark:text-white/40">
+        <div class="text-xs tracking-wide text-theme-text-mute">
           Dashboard
         </div>
       </NuxtLink>
@@ -43,8 +41,8 @@ const isActive = (path: string) => {
         class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all"
         :class="
           isActive(item.path)
-            ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
-            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+            ? 'bg-accent text-white shadow-lg shadow-accent/25'
+            : 'text-theme-text-soft hover:bg-theme-hover'
         "
       >
         <span class="text-lg">{{ item.icon }}</span>
@@ -52,11 +50,11 @@ const isActive = (path: string) => {
       </NuxtLink>
 
       <!-- 底部操作区 -->
-      <div class="mt-auto pt-3 border-t border-gray-200/50 dark:border-gray-700/50 flex flex-col gap-1">
+      <div class="mt-auto pt-3 border-t border-theme-border-soft flex flex-col gap-1">
         <!-- 暗黑模式切换 -->
         <button
           @click="themeStore.toggleTheme()"
-          class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-theme-text-soft hover:bg-theme-hover w-full"
         >
           <span class="text-lg dark:hidden">🌙</span>
           <span class="text-lg hidden dark:inline">☀️</span>

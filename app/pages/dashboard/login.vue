@@ -46,22 +46,20 @@ const handleLogin = async () => {
         <!-- Logo -->
         <div class="text-center mb-8">
           <div class="text-6xl mb-4">🔐</div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-white transition-colors">Dashboard</h1>
-          <p class="text-gray-500 dark:text-gray-400 mt-2 transition-colors">
+          <h1 class="text-3xl font-bold text-theme-text transition-colors">Dashboard</h1>
+          <p class="text-theme-text-mute mt-2 transition-colors">
             请输入管理密钥登录
           </p>
         </div>
 
         <!-- 登录表单 -->
-        <div
-          class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 p-8"
-        >
+        <div class="glass-card p-8">
           <form @submit.prevent="handleLogin" class="space-y-6">
             <!-- 密钥输入 -->
             <div>
               <label
                 for="secret-key"
-                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors"
+                class="block text-sm font-medium text-theme-text-soft mb-2 transition-colors"
               >
                 管理密钥
               </label>
@@ -70,16 +68,13 @@ const handleLogin = async () => {
                 v-model="secretKey"
                 type="password"
                 placeholder="输入密钥..."
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                class="input"
                 :disabled="isLoading"
               />
             </div>
 
             <!-- 错误提示 -->
-            <div
-              v-if="errorMessage"
-              class="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm text-center"
-            >
+            <div v-if="errorMessage" class="error-message text-center">
               {{ errorMessage }}
             </div>
 
@@ -87,7 +82,7 @@ const handleLogin = async () => {
             <button
               type="submit"
               :disabled="isLoading"
-              class="w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
+              class="w-full py-3 px-4 btn-primary disabled:bg-blue-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               <svg
                 v-if="isLoading"
@@ -116,10 +111,7 @@ const handleLogin = async () => {
 
           <!-- 返回首页 -->
           <div class="mt-6 text-center">
-            <NuxtLink
-              to="/"
-              class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-            >
+            <NuxtLink to="/" class="text-sm link">
               ← 返回首页
             </NuxtLink>
           </div>
