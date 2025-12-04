@@ -61,7 +61,7 @@ const formatDate = (dateStr: string): string => {
 </script>
 
 <template>
-  <PageWrapper>
+  <Layout :mode="1">
     <!-- 页面标题 -->
     <h1 class="page-title">文章</h1>
     <p class="page-subtitle">
@@ -86,7 +86,7 @@ const formatDate = (dateStr: string): string => {
             class="group flex items-center py-3 border-l-2 pl-6 transition-all duration-300 hover:border-l-accent border-l-theme-border hover:bg-theme-hover"
           >
             <!-- 日期 -->
-            <span class="text-caption w-16 flex-shrink-0 group-hover:text-theme-text-soft">
+            <span class="text-caption w-16 shrink-0 group-hover:text-theme-text-soft">
               {{ formatDate(post.published_at || post.created_at) }}
             </span>
 
@@ -105,5 +105,5 @@ const formatDate = (dateStr: string): string => {
         暂无文章，敬请期待...
       </p>
     </div>
-  </PageWrapper>
+  </Layout>
 </template>

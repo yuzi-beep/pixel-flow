@@ -67,7 +67,7 @@ const formatEventDate = (dateStr: string): string => {
 </script>
 
 <template>
-  <PageWrapper>
+  <Layout :mode="1">
     <!-- 标签过滤 -->
     <div v-if="allTags.length > 0" class="flex gap-2 mb-8 flex-wrap">
       <button
@@ -133,10 +133,8 @@ const formatEventDate = (dateStr: string): string => {
             ></div>
 
             <!-- 事件卡片 -->
-            <GlassCard
-              padding="p-5"
-              rounded="rounded-xl"
-              class="ml-12 md:ml-0 md:w-[calc(50%-2rem)] transition-all duration-300"
+            <div
+              class="glass-card ml-12 md:ml-0 md:w-[calc(50%-2rem)] transition-all duration-300"
               :class="
                 index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
               "
@@ -172,7 +170,7 @@ const formatEventDate = (dateStr: string): string => {
                   {{ tag }}
                 </span>
               </div>
-            </GlassCard>
+            </div>
           </div>
         </div>
       </div>
@@ -184,5 +182,5 @@ const formatEventDate = (dateStr: string): string => {
         暂无事件记录，敬请期待...
       </p>
     </div>
-  </PageWrapper>
+  </Layout>
 </template>

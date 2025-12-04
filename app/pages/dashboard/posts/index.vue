@@ -6,20 +6,7 @@ useSeoMeta({
   title: "文章管理",
 });
 
-const {
-  isAuthenticated,
-  isLoading: authLoading,
-  checkAuth,
-  getAuthHeader,
-} = useDashboardAuth();
-
-// 检查认证状态
-onMounted(async () => {
-  const valid = await checkAuth();
-  if (!valid) {
-    navigateTo("/dashboard/login");
-  }
-});
+const { getAuthHeader } = useDashboardAuth();
 
 // 分页状态
 const currentPage = ref(1);
@@ -73,7 +60,7 @@ const formatDate = (dateStr: string) => {
 <template>
   <DashboardLayout>
     <!-- 标题栏 - 固定 -->
-    <div class="flex justify-between items-center mb-6 flex-shrink-0">
+    <div class="flex justify-between items-center mb-6 shrink-0">
       <div>
         <h1 class="section-title mb-1">文章管理</h1>
         <p class="text-caption">
@@ -91,7 +78,7 @@ const formatDate = (dateStr: string) => {
     <!-- 列表区域 - 可滚动 -->
     <div class="flex-1 overflow-y-auto pr-2 min-h-0">
       <!-- 文章列表 -->
-      <GlassCard padding="p-0" class="overflow-hidden">
+      <div class="glass-card p-0 overflow-hidden">
         <div v-if="posts.length === 0" class="p-12 text-center">
           <div class="text-6xl mb-4">📝</div>
           <p class="text-caption mb-4">暂无文章</p>
@@ -187,7 +174,7 @@ const formatDate = (dateStr: string) => {
             {{ page }}
           </button>
         </div>
-      </GlassCard>
+      </div>
     </div>
   </DashboardLayout>
 </template>

@@ -189,6 +189,6 @@
   /* ==================== 玻璃卡片 ==================== */
 
   .glass-card {
-    @apply bg-theme-bg-glass border border-theme-border-soft rounded-2xl shadow-md backdrop-blur-sm transition-colors duration-300;
+    @apply bg-theme-bg-glass p-4 border border-theme-border-soft rounded-2xl shadow-md backdrop-blur-sm transition-colors duration-300;
   }
 }

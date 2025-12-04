@@ -36,14 +36,14 @@ const formatFullDate = (dateStr: string): string => {
   return `${year}年${month}月${day}日`;
 };
 
-// PageWrapper 组件 ref
-const pageWrapperRef = ref<{ scrollContainer: HTMLElement | null } | null>(
+// Layout 组件 ref
+const LayoutRef = ref<{ scrollContainer: HTMLElement | null } | null>(
   null
 );
 
 // 回到顶部
 const scrollToTop = () => {
-  pageWrapperRef.value?.scrollContainer?.scrollTo({
+  LayoutRef.value?.scrollContainer?.scrollTo({
     top: 0,
     behavior: "smooth",
   });
@@ -51,7 +51,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <PageWrapper ref="pageWrapperRef">
+  <Layout ref="LayoutRef" :mode="1">
     <article v-if="post">
       <!-- 返回按钮 -->
       <NuxtLink to="/posts" class="inline-flex items-center gap-2 mb-8 link text-caption">
@@ -202,7 +202,7 @@ const scrollToTop = () => {
         返回文章列表
       </NuxtLink>
     </div>
-  </PageWrapper>
+  </Layout>
 </template>
 
 <style scoped lang="scss"></style>

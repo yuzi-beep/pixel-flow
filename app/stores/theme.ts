@@ -19,9 +19,6 @@ export const useThemeStore = defineStore('theme', () => {
         loadingCounter.value = 0
     }
 
-    // ==================== 布局相关 ====================
-    const contentMaxWidth = ref(768)
-
     return {
         // 主题
         isDarkTheme,
@@ -30,8 +27,6 @@ export const useThemeStore = defineStore('theme', () => {
         loadingCounter,
         isLoading,
         startLoading,
-        stopLoading,
-        // 布局
-        contentMaxWidth
+        stopLoading
     }
 })

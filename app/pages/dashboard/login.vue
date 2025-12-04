@@ -40,8 +40,8 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <PageWrapper>
-    <div class="min-h-[60vh] flex items-center justify-center">
+  <DashboardLayout :show-sidebar="false">
+    <div class="flex-1 flex items-center justify-center">
       <div class="w-full max-w-md">
         <!-- Logo -->
         <div class="text-center mb-8">
@@ -115,5 +115,5 @@ const handleLogin = async () => {
         </div>
       </div>
     </div>
-  </PageWrapper>
+  </DashboardLayout>
 </template>

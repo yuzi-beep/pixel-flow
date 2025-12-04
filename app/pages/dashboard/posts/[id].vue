@@ -13,20 +13,7 @@ useSeoMeta({
   title: computed(() => (isNewMode.value ? "新建文章" : "编辑文章")),
 });
 
-const {
-  isAuthenticated,
-  isLoading: authLoading,
-  checkAuth,
-  getAuthHeader,
-} = useDashboardAuth();
-
-// 检查认证状态
-onMounted(async () => {
-  const valid = await checkAuth();
-  if (!valid) {
-    navigateTo("/dashboard/login");
-  }
-});
+const { getAuthHeader } = useDashboardAuth();
 
 // 编辑模式：获取文章数据
 const {
@@ -171,7 +158,7 @@ const submitButtonText = computed(() => {
 <template>
   <DashboardLayout :show-sidebar="false">
     <!-- 顶部工具栏 -->
-    <div class="flex items-center justify-between mb-4 flex-shrink-0">
+    <div class="flex items-center justify-between mb-4 shrink-0">
       <div class="flex items-center gap-4">
         <NuxtLink
           to="/dashboard/posts"
@@ -277,10 +264,8 @@ const submitButtonText = computed(() => {
     <!-- 主编辑区域 -->
     <div class="flex-1 flex gap-4 min-h-0">
       <!-- 左侧编辑器面板 -->
-      <GlassCard
-        padding="p-0"
-        rounded="rounded-xl"
-        class="flex flex-col overflow-hidden transition-all"
+      <div
+        class="glass-card p-0 flex flex-col overflow-hidden transition-all"
         :class="
           viewMode === 'preview'
             ? 'hidden'
@@ -348,13 +333,11 @@ const submitButtonText = computed(() => {
             class="w-full h-full resize-none bg-transparent border-none outline-none text-theme-text placeholder-theme-text-mute text-mono leading-relaxed"
           ></textarea>
         </div>
-      </GlassCard>
+      </div>
 
       <!-- 右侧预览面板 -->
-      <GlassCard
-        padding="p-0"
-        rounded="rounded-xl"
-        class="flex flex-col overflow-hidden transition-all"
+      <div
+        class="glass-card p-0 flex flex-col overflow-hidden transition-all"
         :class="
           viewMode === 'edit'
             ? 'hidden'
@@ -419,7 +402,7 @@ const submitButtonText = computed(() => {
             开始编写内容后预览将显示在这里...
           </div>
         </div>
-      </GlassCard>
+      </div>
     </div>
   </DashboardLayout>
 </template>

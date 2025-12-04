@@ -6,20 +6,7 @@ useSeoMeta({
   title: "碎碎念管理",
 });
 
-const {
-  isAuthenticated,
-  isLoading: authLoading,
-  checkAuth,
-  getAuthHeader,
-} = useDashboardAuth();
-
-// 检查认证状态
-onMounted(async () => {
-  const valid = await checkAuth();
-  if (!valid) {
-    navigateTo("/dashboard/login");
-  }
-});
+const { getAuthHeader } = useDashboardAuth();
 
 // 分页状态
 const currentPage = ref(1);
@@ -179,7 +166,7 @@ const truncateContent = (content: string, length: number = 200) => {
 <template>
   <DashboardLayout>
     <!-- 标题栏 - 固定 -->
-    <div class="flex justify-between items-center mb-6 flex-shrink-0">
+    <div class="flex justify-between items-center mb-6 shrink-0">
       <div>
         <h1 class="section-title mb-1">碎碎念管理</h1>
         <p class="text-caption">
@@ -199,7 +186,7 @@ const truncateContent = (content: string, length: number = 200) => {
     <div class="flex-1 overflow-y-auto pr-2 min-h-0">
       <!-- 列表 -->
       <div v-if="thoughts.length" class="space-y-4">
-        <GlassCard v-for="thought in thoughts" :key="thought.id" padding="p-6">
+        <div v-for="thought in thoughts" :key="thought.id" class="glass-card">
           <div class="flex justify-between items-start gap-4">
             <div class="flex-1 min-w-0">
               <div class="leading-relaxed">
@@ -244,7 +231,7 @@ const truncateContent = (content: string, length: number = 200) => {
               编辑
             </button>
           </div>
-        </GlassCard>
+        </div>
 
         <!-- 分页 -->
         <div v-if="totalPages > 1" class="flex justify-center gap-2 py-4">
@@ -264,7 +251,7 @@ const truncateContent = (content: string, length: number = 200) => {
         </div>
       </div>
       <!-- 空状态 -->
-      <GlassCard v-else padding="py-12" class="text-center">
+      <div v-else class="glass-card py-12 text-center">
         <div class="text-6xl mb-4">💭</div>
         <p class="text-caption mb-4">还没有碎碎念</p>
         <button
@@ -273,7 +260,7 @@ const truncateContent = (content: string, length: number = 200) => {
         >
           发一条碎碎念
         </button>
-      </GlassCard>
+      </div>
     </div>
 
     <!-- 添加/编辑碎碎念对话框 -->

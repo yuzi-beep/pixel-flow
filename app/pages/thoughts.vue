@@ -57,7 +57,7 @@ const formatRelativeTime = (dateStr: string): string => {
 </script>
 
 <template>
-  <PageWrapper>
+  <Layout :mode="1">
     <!-- 页面标题 -->
     <h1 class="page-title">碎碎念</h1>
     <p class="page-subtitle opacity-60">
@@ -129,5 +129,5 @@ const formatRelativeTime = (dateStr: string): string => {
         加载更多
       </button>
     </div>
-  </PageWrapper>
+  </Layout>
 </template>

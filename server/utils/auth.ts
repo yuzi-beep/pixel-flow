@@ -1,7 +1,5 @@
-/**
- * 服务端认证工具
- * 验证 Dashboard Token
- */
+/**服务端认证工具
+ * 验证 Dashboard Token */
 import { createHash } from 'crypto'
 import type { H3Event } from 'h3'
 

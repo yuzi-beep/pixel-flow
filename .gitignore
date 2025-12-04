@@ -26,3 +26,4 @@ logs
 # Temporary files
 bun.lock
 package-lock.json
+pnpm-lock.yaml
