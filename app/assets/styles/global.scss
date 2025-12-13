@@ -1,5 +1,4 @@
 // ==================== 全局样式 ====================
-@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
 
 // 基础重置
 * {
@@ -7,7 +6,8 @@
   outline: none;
   border: none;
   text-decoration: none;
-  font-family: "ZCOOL KuaiLe", sans-serif;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 
   &::-webkit-scrollbar {
     display: none;

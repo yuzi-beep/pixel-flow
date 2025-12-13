@@ -1,4 +1,4 @@
-# PixelFlow
+# YuBubbles
 
 一个基于 **Nuxt 4** + **Supabase** 构建的现代化全栈个人博客系统。
 
@@ -37,7 +37,7 @@
 
 点击下方按钮，即可将本项目一键部署到 Vercel：
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hoooosi/pixel-flow&env=SUPABASE_URL,SUPABASE_KEY,SUPABASE_SECRET_KEY&envDescription=Supabase%20项目配置&envLink=https://supabase.com/dashboard/project/_/settings/api&project-name=pixel-flow&repository-name=pixel-flow)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hoooosi/yu-bubbles&env=SUPABASE_URL,SUPABASE_KEY,SUPABASE_SECRET_KEY&envDescription=Supabase%20项目配置&envLink=https://supabase.com/dashboard/project/_/settings/api&project-name=yu-bubbles&repository-name=yu-bubbles)
 
 #### 部署步骤：
 
@@ -68,8 +68,8 @@
 #### 第一步：克隆项目
 
 ```bash
-git clone https://github.com/hoooosi/pixel-flow.git
-cd pixel-flow
+git clone https://github.com/hoooosi/yu-bubbles.git
+cd yu-bubbles
 ```
 
 #### 第二步：安装依赖
@@ -160,7 +160,7 @@ bun run preview
 ## 📁 项目结构
 
 ```
-pixel-flow/
+yu-bubbles/
 ├── app/                    # Nuxt 应用目录
 │   ├── assets/            # 静态资源（样式、图片）
 │   ├── components/        # Vue 组件

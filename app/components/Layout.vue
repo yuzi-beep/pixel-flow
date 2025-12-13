@@ -52,13 +52,13 @@ defineExpose({
             <!-- Logo -->
             <NuxtLink to="/" class="flex flex-col">
               <div
-                class="font-bold tracking-wider transition-all duration-500 text-theme-text"
+                class="tracking-wider transition-all duration-500 text-xl font-black"
                 :class="mode ? 'text-2xl' : 'card-title text-lg mb-0'"
               >
-                PixelFlow
+                YuBubbles
               </div>
               <Transition name="fade">
-                <div class="text-tiny tracking-wide">Yuzi写东西的地方</div>
+                <div class="text-tiny tracking-wide ml-0.5">Yuzi写东西的地方</div>
               </Transition>
             </NuxtLink>
 

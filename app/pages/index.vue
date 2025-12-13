@@ -7,9 +7,9 @@ import qqIcon from "~/assets/svg/qq.svg";
 const themeStore = useThemeStore();
 const { isDarkTheme } = storeToRefs(themeStore);
 
-// SEO 元数据 - 首页只显示 PixelFlow
+// SEO 元数据 - 首页只显示 YuBubbles
 useSeoMeta({
-  title: "PixelFlow",
+  title: "YuBubbles",
   titleTemplate: "",
 });
 
@@ -130,8 +130,8 @@ await new Promise((resolve) => setTimeout(resolve, 0));
           class="relative flex flex-col w-full h-full justify-center items-center"
         >
           <div class="z-10 flex flex-col items-start max-w-2xl px-8">
-            <h1 class="text-hero mb-6">Yuzi</h1>
-            <p class="text-body text-lg md:text-xl mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-theme-text mb-4 whitespace-nowrap">Hi, I'm <span class="text-transparent bg-clip-text bg-linear-to-r from-purple-500 to-pink-500">Yuzi</span> 👋</h1>
+            <p class="text-xl md:text-2xl mb-8 italic text-theme-text-soft">
               大三在读，目标成为一名全栈工程师。<br />
               热爱技术，相信开源的力量。
             </p>

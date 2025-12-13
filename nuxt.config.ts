@@ -22,8 +22,8 @@ export default defineNuxtConfig({
   // 全局 head 配置
   app: {
     head: {
-      title: "PixelFlow",
-      titleTemplate: "%s | PixelFlow",
+      title: "YuBubbles",
+      titleTemplate: "%s | YuBubbles",
       link: [{ rel: "icon", type: "image/svg+xml", href: "/logo.svg" }],
       meta: [
         { charset: "utf-8" },

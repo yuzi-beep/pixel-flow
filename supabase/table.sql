@@ -79,7 +79,7 @@ INSERT INTO public.thoughts (content, images) VALUES
 INSERT INTO public.events (title, description, event_date, tags, color) VALUES
 (
   '博客正式上线',
-  '经过精心设计和开发，个人博客 PixelFlow 正式上线！这是一个全新的开始，期待在这里记录更多精彩内容。',
+  '经过精心设计和开发，个人博客 YuBubbles 正式上线！这是一个全新的开始，期待在这里记录更多精彩内容。',
   CURRENT_DATE,
   ARRAY['里程碑', '博客'],
   '#3B82F6'

@@ -31,7 +31,7 @@ const isActive = (path: string) => {
         <div class="glass-card">
           <NuxtLink to="/" class="flex flex-col">
             <div class="card-title tracking-wider mb-0">
-              PixelFlow
+              YuBubbles
             </div>
             <div class="text-tiny tracking-wide">
               Dashboard
